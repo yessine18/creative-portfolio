@@ -2,7 +2,7 @@
 
 A premium, high-performance portfolio website showcasing audio-visual artistry, motion graphics, video editing, and national event media campaigns created by **Yessine Fakhfakh**.
 
-![Portfolio Preview](/assets/Artboard%201.png)
+![Portfolio Preview](./assets/Artboard%201.png)
 
 ---
 
