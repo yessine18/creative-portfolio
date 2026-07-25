@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initJourneyMarquee();
   initPostersMarquee();
   initBrandingSlider();
+  initBrandingLogosMarquee();
   initLightbox();
   initContactForm();
 });
@@ -288,5 +289,21 @@ function initContactForm() {
         }, 3000);
       }, 1200);
     }
+  });
+}
+
+// ----------------------------------------------------
+// BRANDING LOGOS MARQUEE CLONER
+// ----------------------------------------------------
+function initBrandingLogosMarquee() {
+  const track = document.getElementById('branding-logos-track');
+  if (!track) return;
+  
+  const boxes = track.querySelectorAll('.logo-box');
+  if (!boxes.length) return;
+  
+  boxes.forEach(box => {
+    const clone = box.cloneNode(true);
+    track.appendChild(clone);
   });
 }

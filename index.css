@@ -987,13 +987,22 @@ ul { list-style: none; }
 }
 
 /*==================== 6. BRANDING LOGOS SHOWCASE (ENLARGED & EQUALIZED) ====================*/
-.branding-logos-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2.5rem;
+.branding-logos-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.branding-logos-track {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
+  gap: 3rem;
   padding: 3.5rem 2rem;
+  width: 100%;
+}
+
+.branding-logos-track .logo-box:nth-child(n+6) {
+  display: none;
 }
 
 .logo-box {
@@ -1609,38 +1618,52 @@ ul { list-style: none; }
   .slider-btn.btn-prev { left: 0rem; }
   .slider-btn.btn-next { right: 0rem; }
 
-  /* Logos Showcase Grid Mobile — Balanced Flex Alignment */
-  .branding-logos-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.25rem 1.5rem;
-    padding: 2rem 0.5rem;
-    width: 100%;
-    max-width: 500px;
-    margin-inline: auto;
+  /* Logos Showcase Mobile — Infinite Continuous Marquee Carousel */
+  .branding-logos-container {
+    overflow: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+    max-width: 100vw !important;
+    padding-block: 1rem !important;
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
   }
 
-  .logo-box {
-    flex: 0 1 calc(50% - 1.25rem);
-    min-width: 120px;
-    max-width: 170px;
-    height: 100px;
-    padding: 0.25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .branding-logos-track {
+    display: flex !important;
+    gap: 2rem !important;
+    width: max-content !important;
+    animation: marquee-left 15s linear infinite !important;
+    align-items: center !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .branding-logos-track:hover {
+    animation-play-state: paused !important;
+  }
+
+  .branding-logos-track .logo-box {
+    display: flex !important;
+    flex: 0 0 150px !important;
+    width: 150px !important;
+    height: 90px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0.25rem !important;
+  }
+
+  .branding-logos-track .logo-box:nth-child(n+6) {
+    display: flex !important;
   }
 
   .brand-logo-img {
-    max-height: 80px;
-    max-width: 140px;
+    max-height: 75px !important;
+    max-width: 135px !important;
   }
 
   .logo-tsyp13, .logo-tec1, .logo-pyfac {
-    max-height: 100px !important;
-    max-width: 170px !important;
+    max-height: 95px !important;
+    max-width: 150px !important;
   }
 
   /* Connect Section Mobile */
