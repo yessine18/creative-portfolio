@@ -1207,3 +1207,310 @@ ul { list-style: none; }
   opacity: 1;
   transform: translateY(0) translateX(0) scale(1);
 }
+
+/*==================== COMPREHENSIVE RESPONSIVE MOBILE & TABLET STYLES ====================*/
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --header-height: 4rem;
+  }
+
+  .container {
+    padding-inline: 1.25rem;
+  }
+
+  .hero__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+    padding-block: 2rem;
+  }
+
+  .hero__lean-left, .hero__lean-right {
+    transform: rotate(0deg) !important;
+  }
+
+  .hero__content {
+    align-items: center;
+  }
+
+  .hero__accent-line {
+    margin-inline: auto;
+  }
+
+  .hero__name {
+    font-size: clamp(2.8rem, 7.5vw, 4.5rem);
+  }
+
+  .hero__title {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  .hero__bio {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .hero__roles {
+    justify-content: center;
+  }
+
+  .hero__subject-img {
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
+  .hero__spotlight-radial {
+    width: 380px;
+    height: 380px;
+  }
+
+  .hero__scroll-cue {
+    display: none;
+  }
+
+  .sw-cat-grid, .sw-cat-grid--3 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .journey-card-dash {
+    flex: 0 0 320px;
+    min-height: 220px;
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding-block: 4rem 3rem;
+  }
+
+  .section-title-wrap {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 6vw, 2.5rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.85rem;
+    padding-inline: 0.5rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 3rem;
+  }
+
+  .hero__name {
+    font-size: clamp(2.3rem, 9vw, 3.4rem);
+    line-height: 1.05;
+  }
+
+  .hero__title {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero__bio {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .hero__role-pill {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  .hero__subject-img {
+    max-width: 290px;
+  }
+
+  .hero__spotlight-radial {
+    width: 300px;
+    height: 300px;
+    filter: blur(50px);
+  }
+
+  .sw-dash-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+    gap: 0.85rem;
+  }
+
+  .sw-dash__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    padding: 8px;
+  }
+
+  .sw-dash__title {
+    font-size: 1.18rem;
+  }
+
+  .sw-dash__desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .sw-dash__chips span {
+    font-size: 0.68rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  /* Journey Cards Mobile */
+  .journey-card-dash {
+    flex: 0 0 280px;
+    min-height: 210px;
+    padding: 1.25rem 1.15rem;
+    gap: 0.6rem;
+  }
+
+  .j-num-badge {
+    font-size: 1.25rem;
+  }
+
+  .j-date-badge {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.65rem;
+  }
+
+  /* Social Posters Mobile */
+  .poster-card {
+    flex: 0 0 200px;
+    width: 200px;
+    border-radius: 14px;
+  }
+
+  /* Events Branding Mobile */
+  .branding-slider-wrap {
+    padding-block: 0.5rem 2rem;
+  }
+
+  .branding-slide-item {
+    padding-inline: 0.25rem;
+  }
+
+  .branding-header-centered {
+    margin-bottom: 1.75rem;
+  }
+
+  .b-logo-large {
+    max-height: 110px;
+    max-width: 260px;
+  }
+
+  .b-logo-large.b-logo-tsyp13,
+  .b-logo-large.b-logo-tec1 {
+    max-height: 130px !important;
+    max-width: 280px !important;
+  }
+
+  .b-title-centered {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important;
+    padding-inline: 0.5rem;
+  }
+
+  .campaign-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .campaign-grid .poster-card {
+    max-width: 100%;
+    flex: 1;
+    width: 100%;
+  }
+
+  .slider-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+    top: 60px;
+  }
+
+  .slider-btn.btn-prev { left: 0rem; }
+  .slider-btn.btn-next { right: 0rem; }
+
+  /* Logos Showcase Grid Mobile */
+  .branding-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .logo-box {
+    height: 120px;
+    padding: 0.25rem;
+  }
+
+  .brand-logo-img {
+    max-height: 90px;
+    max-width: 160px;
+  }
+
+  .logo-tsyp13, .logo-tec1 {
+    max-height: 110px !important;
+    max-width: 200px !important;
+  }
+
+  /* Connect Section Mobile */
+  .connect-headline {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .connect-sub {
+    font-size: 0.9rem;
+  }
+
+  .form-input {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+
+  .btn-gradient {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.92rem;
+    border-radius: 12px;
+  }
+
+  .footer-copyright {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+  }
+
+  .footer-copyright p {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero__name {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+
+  .hero__subject-img {
+    max-width: 240px;
+  }
+
+  .campaign-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .journey-card-dash {
+    flex: 0 0 250px;
+    min-height: 195px;
+    padding: 1.15rem 1rem;
+  }
+
+  .poster-card {
+    flex: 0 0 170px;
+    width: 170px;
+  }
+}
