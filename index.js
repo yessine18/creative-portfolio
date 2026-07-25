@@ -4,6 +4,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   initNavEvents();
   initRevealAnimations();
+  initVideoSection();
   initJourneyMarquee();
   initPostersMarquee();
   initBrandingSlider();
@@ -296,6 +297,7 @@ function initContactForm() {
 }
 
 // ----------------------------------------------------
+// ----------------------------------------------------
 // BRANDING LOGOS MARQUEE CLONER
 // ----------------------------------------------------
 function initBrandingLogosMarquee() {
@@ -309,4 +311,75 @@ function initBrandingLogosMarquee() {
     const clone = box.cloneNode(true);
     track.appendChild(clone);
   });
+}
+
+// ----------------------------------------------------
+// VIDEO PRODUCTIONS & REELS SHOWCASE (FILTER & EXPAND)
+// ----------------------------------------------------
+function initVideoSection() {
+  const filterBtns = document.querySelectorAll('.video-filter-btn');
+  const vCards = document.querySelectorAll('.v-card');
+  const expandBtn = document.getElementById('video-expand-btn');
+  const expandText = document.getElementById('expand-text');
+  const expandIcon = document.getElementById('expand-icon');
+  
+  if (!vCards.length) return;
+  
+  let currentFilter = 'all';
+  let isExpanded = false;
+  const INITIAL_LIMIT = 6;
+  
+  function updateVideoVisibility() {
+    let visibleCount = 0;
+    
+    vCards.forEach(card => {
+      const cardBrand = card.dataset.brand;
+      const matchesFilter = (currentFilter === 'all' || cardBrand === currentFilter);
+      
+      if (matchesFilter) {
+        visibleCount++;
+        if (currentFilter === 'all' && !isExpanded && visibleCount > INITIAL_LIMIT) {
+          card.style.display = 'none';
+        } else {
+          card.style.display = 'flex';
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    
+    if (expandBtn) {
+      if (currentFilter !== 'all') {
+        expandBtn.parentElement.style.display = 'none';
+      } else {
+        expandBtn.parentElement.style.display = 'flex';
+        if (isExpanded) {
+          expandText.textContent = 'Show Less';
+          expandIcon.className = 'ri-arrow-up-s-line';
+        } else {
+          expandText.textContent = 'Show All 26 Video Productions';
+          expandIcon.className = 'ri-arrow-down-s-line';
+        }
+      }
+    }
+  }
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      updateVideoVisibility();
+    });
+  });
+  
+  if (expandBtn) {
+    expandBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      updateVideoVisibility();
+    });
+  }
+  
+  // Initial run
+  updateVideoVisibility();
 }
