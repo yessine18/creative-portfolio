@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yessine Fakhfakh — Audio Visual Artist</title>
+  <meta name="description" content="Portfolio of Yessine Fakhfakh, Audio Visual Artist, Motion Designer, Video Editor, and Media Production Manager.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- RemixIcons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+  <!--==================== PERSISTENT AMBIENT SPOTLIGHT GLOWS ====================-->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+
+  <!--==================== PERSISTENT CORNER HASHTAG FOOTERS ====================-->
+  <div class="fixed-footer-tag tag-left">#YESSINE_FAKHFAKH</div>
+  <div class="fixed-footer-tag tag-right">#AUDIO_VISUAL_ARTIST</div>
+
+  <!--==================== HEADER & NAVBAR ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <!-- Left: Logo -->
+      <a href="#home" class="nav__logo-link">
+        <img src="/logos/nova visuals small logo.png" alt="Nova Visuals Logo" class="nav__logo-img">
+      </a>
+
+      <!-- Center: Nav Links -->
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link active-link">Cover</a></li>
+          <li><a href="#expertise" class="nav__link">Softwares</a></li>
+          <li><a href="#journey" class="nav__link">Journey</a></li>
+          <li><a href="#posters" class="nav__link">Posters</a></li>
+          <li><a href="#branding-carousel" class="nav__link">Branding</a></li>
+          <li><a href="#logos-showcase" class="nav__link">Logos</a></li>
+          <li><a href="#connect" class="nav__link">Connect</a></li>
+        </ul>
+        <button class="nav-icon-btn nav__close" id="nav-close" aria-label="Close menu">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <!-- Right: Mobile Toggle -->
+      <div class="nav__actions">
+        <button class="nav-icon-btn nav__toggle" id="nav-toggle" aria-label="Open menu">
+          <i class="ri-menu-3-line"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    
+    <!--==================== 1. HERO — COVER SLIDE (SWAPPED POSITIONS & LEANED) ====================-->
+    <section class="hero section" id="home">
+      <div class="hero__container container">
+        
+        <!-- Left Column: Name, Title, Description -->
+        <div class="hero__content hero__lean-left reveal-left">
+          <div class="hero__accent-line"></div>
+          <h1 class="hero__name">Yessine<br>Fakhfakh</h1>
+          <p class="hero__title">Audio Visual Artist</p>
+          <p class="hero__bio">
+            Crafting end-to-end high-impact media campaigns, 3D motion graphics, brand identities, and video production for national-scale tech events & congresses across Tunisia.
+          </p>
+          <div class="hero__roles">
+            <span class="hero__role-pill"><i class="ri-movie-line"></i> Motion Designer</span>
+            <span class="hero__role-pill"><i class="ri-video-download-line"></i> Video Editor</span>
+            <span class="hero__role-pill"><i class="ri-palette-line"></i> Graphic Designer</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Profile Image (No circle, leaned slightly) -->
+        <div class="hero__visual hero__lean-right reveal-right">
+          <div class="hero__spotlight-radial"></div>
+          <img src="/assets/my image.png" alt="Yessine Fakhfakh" class="hero__subject-img">
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-cue">
+        <div class="scroll-line"></div>
+        <span class="scroll-text">Scroll Down</span>
+      </div>
+    </section>
+
+    <!--==================== 2. USED SOFTWARES (DIVIDED BY CATEGORY WITH SPACIOUS DASHBOARD CARDS) ====================-->
+    <section class="section softwares-section" id="expertise">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <h2 class="section-title">USED SOFTWARES</h2>
+          <p class="section-subtitle">Industry-standard tools powering every pixel & frame</p>
+        </div>
+
+        <div class="sw-divided-dashboard reveal">
+          
+          <!-- Category 1: Graphic Design -->
+          <div class="sw-cat-block">
+            <h3 class="sw-cat-title"><i class="ri-palette-line"></i> Graphic Design</h3>
+            <div class="sw-cat-grid">
+              
+              <!-- Illustrator Card -->
+              <div class="sw-dash-card sw-dash--ai">
+                <div class="sw-dash__glow"></div>
+                <div class="sw-dash__top">
+                  <div class="sw-dash__icon">
+                    <img src="/assets/Illustrator-Logo.png" alt="Adobe Illustrator">
+                  </div>
+                  <span class="sw-dash__cat">Vector Graphics</span>
+                </div>
+                <h3 class="sw-dash__title">Adobe Illustrator</h3>
+                <p class="sw-dash__desc">Brand identities, event logos, scalable vector artwork & campaign branding assets.</p>
+                <div class="sw-dash__chips">
+                  <span>Brand Logos</span>
+                  <span>Vector Art</span>
+                  <span>Typography</span>
+                </div>
+              </div>
+
+              <!-- Photoshop Card -->
+              <div class="sw-dash-card sw-dash--ps">
+                <div class="sw-dash__glow"></div>
+                <div class="sw-dash__top">
+                  <div class="sw-dash__icon">
+                    <img src="/assets/adobe-photoshop-logo.png" alt="Adobe Photoshop">
+                  </div>
+                  <span class="sw-dash__cat">Raster & Editing</span>
+                </div>
+                <h3 class="sw-dash__title">Adobe Photoshop</h3>
+                <p class="sw-dash__desc">High-res poster composition, photo manipulation, social media designs & visual FX textures.</p>
+                <div class="sw-dash__chips">
+                  <span>Social Posters</span>
+                  <span>Compositing</span>
+                  <span>Retouching</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category 2: Video Editing -->
+          <div class="sw-cat-block">
+            <h3 class="sw-cat-title"><i class="ri-video-download-line"></i> Video Editing</h3>
+            <div class="sw-cat-grid sw-cat-grid--3">
+              
+              <!-- Premiere Pro Card -->
+              <div class="sw-dash-card sw-dash--pr">
+                <div class="sw-dash__glow"></div>
+                <div class="sw-dash__top">
+                  <div class="sw-dash__icon">
+                    <img src="/assets/adobe-premiere-pro-logo-5.png" alt="Adobe Premiere Pro">
+                  </div>
+                  <span class="sw-dash__cat">Timeline Editing</span>
+                </div>
+                <h3 class="sw-dash__title">Adobe Premiere Pro</h3>
+                <p class="sw-dash__desc">Full-length congress teasers, aftermovies, promotional trailers & audio-visual synchronization.</p>
+                <div class="sw-dash__chips">
+                  <span>Event Trailers</span>
+                  <span>Aftermovies</span>
+                  <span>Audio Sync</span>
+                </div>
+              </div>
+
+              <!-- After Effects Card -->
+              <div class="sw-dash-card sw-dash--ae">
+                <div class="sw-dash__glow"></div>
+                <div class="sw-dash__top">
+                  <div class="sw-dash__icon">
+                    <img src="/assets/adobe-after-effects-logo-8.png" alt="Adobe After Effects">
+                  </div>
+                  <span class="sw-dash__cat">Motion & VFX</span>
+                </div>
+                <h3 class="sw-dash__title">Adobe After Effects</h3>
+                <p class="sw-dash__desc">3D intro reveals, lower thirds, kinetic typography, particle animation & visual effects composition.</p>
+                <div class="sw-dash__chips">
+                  <span>3D Motion</span>
+                  <span>Logo Animation</span>
+                  <span>VFX Effects</span>
+                </div>
+              </div>
+
+              <!-- DaVinci Resolve Card -->
+              <div class="sw-dash-card sw-dash--resolve">
+                <div class="sw-dash__glow"></div>
+                <div class="sw-dash__top">
+                  <div class="sw-dash__icon">
+                    <img src="/assets/DaVinci-Resolve-Logo.png" alt="DaVinci Resolve">
+                  </div>
+                  <span class="sw-dash__cat">Color Grading</span>
+                </div>
+                <h3 class="sw-dash__title">DaVinci Resolve</h3>
+                <p class="sw-dash__desc">Cinematic color grading, color space transforms, HDR balancing & award-winning video finishing.</p>
+                <div class="sw-dash__chips">
+                  <span>Color Grading</span>
+                  <span>Cinematic Look</span>
+                  <span>HDR Finish</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--==================== 3. CREATIVE JOURNEY (SAME DASHBOARD BOX DESIGN) ====================-->
+    <section class="section journey-section" id="journey">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <h2 class="section-title">CREATIVE JOURNEY</h2>
+          <p class="section-subtitle">Leadership, awards, and media manager roles across national events</p>
+        </div>
+      </div>
+
+      <div class="journey-marquee-wrap reveal">
+        <div class="journey-marquee-track" id="journey-marquee">
+          
+          <!-- Milestone 01 -->
+          <div class="sw-dash-card journey-card-dash card-red">
+            <div class="sw-dash__glow glow-red"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">01</span>
+              <span class="j-date-badge">Sep – Nov 2023</span>
+            </div>
+            <h3 class="sw-dash__title">Design & Video Editing Team Member</h3>
+            <p class="sw-dash__desc">9th Annual Forum "Pitch Yourself For A Career" (PYFAC 9)</p>
+            <div class="sw-dash__chips">
+              <span>Team Member</span>
+              <span>Design & Video</span>
+            </div>
+          </div>
+
+          <!-- Milestone 02 -->
+          <div class="sw-dash-card journey-card-dash card-orange">
+            <div class="sw-dash__glow glow-orange"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">02</span>
+              <span class="j-date-badge">Jan – Dec 2024</span>
+            </div>
+            <h3 class="sw-dash__title">Design Manager</h3>
+            <p class="sw-dash__desc">IEEE Computer Society (CS) Chapter</p>
+            <div class="sw-dash__chips">
+              <span>Design Manager</span>
+              <span>IEEE CS</span>
+            </div>
+          </div>
+
+          <!-- Milestone 03 -->
+          <div class="sw-dash-card journey-card-dash card-white">
+            <div class="sw-dash__glow glow-white"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">03</span>
+              <span class="j-date-badge">Jan – Dec 2024</span>
+            </div>
+            <h3 class="sw-dash__title">Design Manager</h3>
+            <p class="sw-dash__desc">IEEE Aerospace & Electronic Systems Society (AESS) Chapter</p>
+            <div class="sw-dash__chips">
+              <span>Design Manager</span>
+              <span>IEEE AESS</span>
+            </div>
+          </div>
+
+          <!-- Milestone 04 -->
+          <div class="sw-dash-card journey-card-dash card-skyblue">
+            <div class="sw-dash__glow glow-skyblue"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">04</span>
+              <span class="j-date-badge">Mar – Sep 2024</span>
+            </div>
+            <h3 class="sw-dash__title">Design & Video Editing Manager</h3>
+            <p class="sw-dash__desc">Tunisian Engineering Congress Week (TecWeek 1.0)</p>
+            <div class="sw-dash__chips">
+              <span>Media Manager</span>
+              <span>TecWeek 1.0</span>
+            </div>
+          </div>
+
+          <!-- Milestone 05 -->
+          <div class="sw-dash-card journey-card-dash card-deeporange">
+            <div class="sw-dash__glow glow-deeporange"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">05</span>
+              <span class="j-date-badge">Jun – Nov 2024</span>
+            </div>
+            <h3 class="sw-dash__title">Design & Video Editing Manager</h3>
+            <p class="sw-dash__desc">10th Annual Forum "Pitch Yourself For A Career" (PYFAC 10)</p>
+            <div class="sw-dash__chips">
+              <span>Manager</span>
+              <span>PYFAC 10</span>
+            </div>
+          </div>
+
+          <!-- Milestone 06: CROWN JEWEL -->
+          <div class="sw-dash-card journey-card-dash card-gold crown-jewel-dash">
+            <div class="sw-dash__glow glow-gold"></div>
+            <div class="crown-banner-dash">
+              <span>👑 CROWN JEWEL MILESTONE</span>
+            </div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge text-gold">06</span>
+              <span class="j-date-badge text-gold">Dec 22, 2024</span>
+            </div>
+            <h3 class="sw-dash__title text-gold">Awarded 2nd Best Video</h3>
+            <p class="sw-dash__desc">Tunisian National Congress (TSYP 12) — Among 50 Engineering Schools</p>
+            <div class="sw-dash__chips">
+              <span class="chip-gold">National Award</span>
+              <span class="chip-gold">TSYP 12</span>
+            </div>
+          </div>
+
+          <!-- Milestone 07 -->
+          <div class="sw-dash-card journey-card-dash card-blue">
+            <div class="sw-dash__glow glow-blue"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">07</span>
+              <span class="j-date-badge">Dec 2024 – Dec 2025</span>
+            </div>
+            <h3 class="sw-dash__title">Media Manager</h3>
+            <p class="sw-dash__desc">IEEE ENIS Student Branch</p>
+            <div class="sw-dash__chips">
+              <span>Media Manager</span>
+              <span>IEEE ENIS</span>
+            </div>
+          </div>
+
+          <!-- Milestone 08 -->
+          <div class="sw-dash-card journey-card-dash card-teal">
+            <div class="sw-dash__glow glow-teal"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">08</span>
+              <span class="j-date-badge">Dec 2024 – Dec 2025</span>
+            </div>
+            <h3 class="sw-dash__title">Video Editing Manager</h3>
+            <p class="sw-dash__desc">TSYP 13 Congress</p>
+            <div class="sw-dash__chips">
+              <span>Video Lead</span>
+              <span>TSYP 13</span>
+            </div>
+          </div>
+
+          <!-- Milestone 09 -->
+          <div class="sw-dash-card journey-card-dash card-teal">
+            <div class="sw-dash__glow glow-teal"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">09</span>
+              <span class="j-date-badge">Dec 2024 – Dec 2025</span>
+            </div>
+            <h3 class="sw-dash__title">Production & Audio/Visual Manager</h3>
+            <p class="sw-dash__desc">TSYP 13 Congress</p>
+            <div class="sw-dash__chips">
+              <span>Production Manager</span>
+              <span>TSYP 13</span>
+            </div>
+          </div>
+
+          <!-- Milestone 10 -->
+          <div class="sw-dash-card journey-card-dash card-purple">
+            <div class="sw-dash__glow glow-purple"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">10</span>
+              <span class="j-date-badge">Mar – Oct 2025</span>
+            </div>
+            <h3 class="sw-dash__title">Full Media & Production Coverage Lead</h3>
+            <p class="sw-dash__desc">Tunisian Engineering Congress Week 2.0 (TecWeek 2.0)</p>
+            <div class="sw-dash__chips">
+              <span>Coverage Lead</span>
+              <span>TecWeek 2.0</span>
+            </div>
+          </div>
+
+          <!-- Milestone 11 -->
+          <div class="sw-dash-card journey-card-dash card-red">
+            <div class="sw-dash__glow glow-red"></div>
+            <div class="sw-dash__top">
+              <span class="j-num-badge">11</span>
+              <span class="j-date-badge">Jul – Dec 2025</span>
+            </div>
+            <h3 class="sw-dash__title">Freelance Video Editor</h3>
+            <p class="sw-dash__desc">"PYANGO"</p>
+            <div class="sw-dash__chips">
+              <span>Freelance</span>
+              <span>PYANGO</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--==================== 4. SOCIAL MEDIA POSTERS — DUAL MARQUEE ====================-->
+    <section class="section showcase-section" id="posters">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <h2 class="section-title">SOCIAL MEDIA POSTERS</h2>
+          <p class="section-subtitle">Continuous infinite showcase of promotional designs — 100+ posters created across national campaigns (Hover to pause / Click to enlarge)</p>
+        </div>
+      </div>
+
+      <div class="posters-marquee-container reveal">
+        
+        <!-- Row 1: Marquee Scrolling Left -->
+        <div class="poster-marquee-wrap">
+          <div class="poster-marquee-track track-left" id="poster-track-1">
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/Artboard 1.png"><img src="/social media posters/Artboard 1.png" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/Artboard 2.png"><img src="/social media posters/Artboard 2.png" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/489952920_1596784554607665_3581990809034147580_n.jpg"><img src="/social media posters/489952920_1596784554607665_3581990809034147580_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/494954415_1611095086509945_65802313059471809_n.jpg"><img src="/social media posters/494954415_1611095086509945_65802313059471809_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/511328129_1654927872126666_9213169776060395373_n.jpg"><img src="/social media posters/511328129_1654927872126666_9213169776060395373_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/523944689_1067460652201518_3113593924031003834_n.jpg"><img src="/social media posters/523944689_1067460652201518_3113593924031003834_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/532302134_122166993794380045_6412427557549665400_n.jpg"><img src="/social media posters/532302134_122166993794380045_6412427557549665400_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/register.png"><img src="/social media posters/register.png" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/471280709_122139049328380045_2275095955086216941_n.jpg"><img src="/social media posters/471280709_122139049328380045_2275095955086216941_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/471512932_122140259660380045_6501544314484858442_n.jpg"><img src="/social media posters/471512932_122140259660380045_6501544314484858442_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/471632133_122140187486380045_7894102206647280729_n.jpg"><img src="/social media posters/471632133_122140187486380045_7894102206647280729_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/471665293_122140154588380045_2724253135085449871_n.jpg"><img src="/social media posters/471665293_122140154588380045_2724253135085449871_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/471857710_122140151024380045_2354039373988543328_n.jpg"><img src="/social media posters/471857710_122140151024380045_2354039373988543328_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/471964169_122140187318380045_5026923920166352628_n.jpg"><img src="/social media posters/471964169_122140187318380045_5026923920166352628_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/481448188_563160376744260_4520476289366811155_n.jpg"><img src="/social media posters/481448188_563160376744260_4520476289366811155_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/481680256_563760503350914_5597145557341452799_n.jpg"><img src="/social media posters/481680256_563760503350914_5597145557341452799_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/481772938_563434303383534_8074199882631411459_n.jpg"><img src="/social media posters/481772938_563434303383534_8074199882631411459_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/481774188_563770016683296_7469144489245281482_n.jpg"><img src="/social media posters/481774188_563770016683296_7469144489245281482_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/481785953_563757306684567_8462803730775949078_n.jpg"><img src="/social media posters/481785953_563757306684567_8462803730775949078_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/481822570_563762646684033_6293371240609810440_n.jpg"><img src="/social media posters/481822570_563762646684033_6293371240609810440_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+          </div>
+        </div>
+
+        <!-- Row 2: Marquee Scrolling Right -->
+        <div class="poster-marquee-wrap">
+          <div class="poster-marquee-track track-right" id="poster-track-2">
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/489975698_1594762944809826_1254555252871166254_n.jpg"><img src="/social media posters/489975698_1594762944809826_1254555252871166254_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/514407006_122168401748380045_3328248117607165758_n.jpg"><img src="/social media posters/514407006_122168401748380045_3328248117607165758_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/521294875_1677720776514042_7848528370587612339_n.jpg"><img src="/social media posters/521294875_1677720776514042_7848528370587612339_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/526680843_1072894068324843_5934486950090194453_n.jpg"><img src="/social media posters/526680843_1072894068324843_5934486950090194453_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/535708145_1091019006512349_8976328660571520334_n.jpg"><img src="/social media posters/535708145_1091019006512349_8976328660571520334_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/542118562_1711754046444048_3563435529327668671_n.jpg"><img src="/social media posters/542118562_1711754046444048_3563435529327668671_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/542144767_122169429062380045_1602352180331033088_n.jpg"><img src="/social media posters/542144767_122169429062380045_1602352180331033088_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/546836821_122169964250380045_2045515121166240745_n.jpg"><img src="/social media posters/546836821_122169964250380045_2045515121166240745_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/551178852_1114094497538133_5650782637594781240_n.jpg"><img src="/social media posters/551178852_1114094497538133_5650782637594781240_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/554643733_122171404988380045_3392006900196401821_n (1).jpg"><img src="/social media posters/554643733_122171404988380045_3392006900196401821_n (1).jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/555475146_122171730782380045_644113692133865287_n.jpg"><img src="/social media posters/555475146_122171730782380045_644113692133865287_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/555938966_122171887502380045_9081809063976272484_n.jpg"><img src="/social media posters/555938966_122171887502380045_9081809063976272484_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/555953050_122171689670380045_7392763205132550035_n.jpg"><img src="/social media posters/555953050_122171689670380045_7392763205132550035_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/558393326_1740166120269507_603673097598959992_n.jpg"><img src="/social media posters/558393326_1740166120269507_603673097598959992_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/559035622_122173209380380045_5137313060373323177_n.jpg"><img src="/social media posters/559035622_122173209380380045_5137313060373323177_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/600328685_1183544127259836_2153814441519334316_n.jpg"><img src="/social media posters/600328685_1183544127259836_2153814441519334316_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/608567922_1811073469845438_2998513810220154536_n.jpg"><img src="/social media posters/608567922_1811073469845438_2998513810220154536_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/619294062_1827911398161645_4681478242891491316_n.jpg"><img src="/social media posters/619294062_1827911398161645_4681478242891491316_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/632789023_1223335446614037_1259816566364226330_n.jpg"><img src="/social media posters/632789023_1223335446614037_1259816566364226330_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/697777755_1295948322686082_3449307850382057080_n.jpg"><img src="/social media posters/697777755_1295948322686082_3449307850382057080_n.jpg" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+            <div class="poster-card lightbox-trigger" data-img="/social media posters/WEBSITE REVEAL.png"><img src="/social media posters/WEBSITE REVEAL.png" alt="Poster" loading="lazy"><div class="poster-overlay"><i class="ri-zoom-in-line"></i></div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!--==================== 5. SOCIAL MEDIA EVENTS BRANDING (CAROUSEL WITH UNIFIED FONT) ====================-->
+    <section class="section branding-carousel-section" id="branding-carousel">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <h2 class="section-title">SOCIAL MEDIA EVENTS BRANDING</h2>
+        </div>
+
+        <div class="branding-slider-wrap reveal">
+          <!-- Next / Previous Controls -->
+          <button class="slider-btn btn-prev" id="branding-prev" aria-label="Previous Campaign">
+            <i class="ri-arrow-left-s-line"></i>
+          </button>
+          <button class="slider-btn btn-next" id="branding-next" aria-label="Next Campaign">
+            <i class="ri-arrow-right-s-line"></i>
+          </button>
+
+          <!-- Slides Track -->
+          <div class="branding-slider-track" id="branding-track">
+
+            <!-- Slide 1: TSYP 13 -->
+            <div class="branding-slide-item">
+              <div class="branding-header-centered">
+                <img src="/logos/logo tunisian students and young professionals congress 13th edition.png" alt="TSYP 13 Logo" class="b-logo-large b-logo-tsyp13">
+                <h3 class="b-title-centered b-title-tsyp">TUNISIAN STUDENTS & YOUNG PROFESSIONALS CONGRESS 13<sup>TH</sup> EDITION</h3>
+              </div>
+              <div class="campaign-grid">
+                <div class="poster-card lightbox-trigger" data-img="/tunisian students and young professional congress 13th edition branding/526680843_1072894068324843_5934486950090194453_n.jpg">
+                  <img src="/tunisian students and young professional congress 13th edition branding/526680843_1072894068324843_5934486950090194453_n.jpg" alt="TSYP 13 Statistics" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian students and young professional congress 13th edition branding/535708145_1091019006512349_8976328660571520334_n.jpg">
+                  <img src="/tunisian students and young professional congress 13th edition branding/535708145_1091019006512349_8976328660571520334_n.jpg" alt="Check Emails" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian students and young professional congress 13th edition branding/551178852_1114094497538133_5650782637594781240_n.jpg">
+                  <img src="/tunisian students and young professional congress 13th edition branding/551178852_1114094497538133_5650782637594781240_n.jpg" alt="Thanks Partner" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian students and young professional congress 13th edition branding/600328685_1183544127259836_2153814441519334316_n.jpg">
+                  <img src="/tunisian students and young professional congress 13th edition branding/600328685_1183544127259836_2153814441519334316_n.jpg" alt="Yessine Manager" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian students and young professional congress 13th edition branding/632789023_1223335446614037_1259816566364226330_n.jpg">
+                  <img src="/tunisian students and young professional congress 13th edition branding/632789023_1223335446614037_1259816566364226330_n.jpg" alt="Herotopia" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian students and young professional congress 13th edition branding/697777755_1295948322686082_3449307850382057080_n.jpg">
+                  <img src="/tunisian students and young professional congress 13th edition branding/697777755_1295948322686082_3449307850382057080_n.jpg" alt="Congratulations" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: IEEE ENIS -->
+            <div class="branding-slide-item">
+              <div class="branding-header-centered">
+                <img src="/logos/logos_enis_sb white-03.png" alt="ENIS IEEE Logo" class="b-logo-large">
+                <h3 class="b-title-centered b-title-enis">IEEE ENIS STUDENT BRANCH</h3>
+              </div>
+              <div class="campaign-grid">
+                <div class="poster-card lightbox-trigger" data-img="/ieee enis student branch branding/489975698_1594762944809826_1254555252871166254_n.jpg">
+                  <img src="/ieee enis student branch branding/489975698_1594762944809826_1254555252871166254_n.jpg" alt="Mawlid Sharif" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/ieee enis student branch branding/521294875_1677720776514042_7848528370587612339_n.jpg">
+                  <img src="/ieee enis student branch branding/521294875_1677720776514042_7848528370587612339_n.jpg" alt="IEEE Foundation Day" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/ieee enis student branch branding/542118562_1711754046444048_3563435529327668671_n.jpg">
+                  <img src="/ieee enis student branch branding/542118562_1711754046444048_3563435529327668671_n.jpg" alt="Happy IEEE Day" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/ieee enis student branch branding/558393326_1740166120269507_603673097598959992_n.jpg">
+                  <img src="/ieee enis student branch branding/558393326_1740166120269507_603673097598959992_n.jpg" alt="New Year 2026" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/ieee enis student branch branding/608567922_1811073469845438_2998513810220154536_n.jpg">
+                  <img src="/ieee enis student branch branding/608567922_1811073469845438_2998513810220154536_n.jpg" alt="Republic Day" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/ieee enis student branch branding/619294062_1827911398161645_4681478242891491316_n.jpg">
+                  <img src="/ieee enis student branch branding/619294062_1827911398161645_4681478242891491316_n.jpg" alt="Stellaris Award" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: HELLO WORLD 4.0 -->
+            <div class="branding-slide-item">
+              <div class="branding-header-centered">
+                <img src="/logos/hello world 4.0.png" alt="Hello World 4.0 Logo" class="b-logo-large logo-contain">
+                <h3 class="b-title-centered b-title-helloworld">HELLO WORLD 4.0 — CP COMPETITION</h3>
+              </div>
+              <div class="campaign-grid">
+                <div class="poster-card lightbox-trigger" data-img="/hello world 4.0 cp competition branding/481448188_563160376744260_4520476289366811155_n.jpg">
+                  <img src="/hello world 4.0 cp competition branding/481448188_563160376744260_4520476289366811155_n.jpg" alt="Hear Us On" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/hello world 4.0 cp competition branding/481680256_563760503350914_5597145557341452799_n.jpg">
+                  <img src="/hello world 4.0 cp competition branding/481680256_563760503350914_5597145557341452799_n.jpg" alt="Feedback" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/hello world 4.0 cp competition branding/481772938_563434303383534_8074199882631411459_n.jpg">
+                  <img src="/hello world 4.0 cp competition branding/481772938_563434303383534_8074199882631411459_n.jpg" alt="Register Now" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/hello world 4.0 cp competition branding/481774188_563770016683296_7469144489245281482_n.jpg">
+                  <img src="/hello world 4.0 cp competition branding/481774188_563770016683296_7469144489245281482_n.jpg" alt="Plan of Day" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/hello world 4.0 cp competition branding/481785953_563757306684567_8462803730775949078_n.jpg">
+                  <img src="/hello world 4.0 cp competition branding/481785953_563757306684567_8462803730775949078_n.jpg" alt="Registration Open" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/hello world 4.0 cp competition branding/481822570_563762646684033_6293371240609810440_n.jpg">
+                  <img src="/hello world 4.0 cp competition branding/481822570_563762646684033_6293371240609810440_n.jpg" alt="Call Detectives" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: TEC WEEK 2.0 -->
+            <div class="branding-slide-item">
+              <div class="branding-header-centered">
+                <img src="/logos/logo tunisian engineering congress week 2.0.png" alt="TEC Week 2.0 Logo" class="b-logo-large">
+                <h3 class="b-title-centered b-title-tec2">TUNISIAN ENGINEERING CONGRESS WEEK 2.0</h3>
+              </div>
+              <div class="campaign-grid">
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engneering congress week 2.0 branding/514407006_122168401748380045_3328248117607165758_n.jpg">
+                  <img src="/tunisian engneering congress week 2.0 branding/514407006_122168401748380045_3328248117607165758_n.jpg" alt="Success Support" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engneering congress week 2.0 branding/546836821_122169964250380045_2045515121166240745_n.jpg">
+                  <img src="/tunisian engneering congress week 2.0 branding/546836821_122169964250380045_2045515121166240745_n.jpg" alt="Echoes of Dido" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engneering congress week 2.0 branding/554643733_122171404988380045_3392006900196401821_n (1).jpg">
+                  <img src="/tunisian engneering congress week 2.0 branding/554643733_122171404988380045_3392006900196401821_n (1).jpg" alt="Hannibals Anthem" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engneering congress week 2.0 branding/WEBSITE REVEAL.png">
+                  <img src="/tunisian engneering congress week 2.0 branding/WEBSITE REVEAL.png" alt="Website Reveal" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engneering congress week 2.0 branding/555938966_122171887502380045_9081809063976272484_n.jpg">
+                  <img src="/tunisian engneering congress week 2.0 branding/555938966_122171887502380045_9081809063976272484_n.jpg" alt="Prize Pool" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engneering congress week 2.0 branding/559035622_122173209380380045_5137313060373323177_n.jpg">
+                  <img src="/tunisian engneering congress week 2.0 branding/559035622_122173209380380045_5137313060373323177_n.jpg" alt="Competition Theme" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: TEC WEEK 1.0 -->
+            <div class="branding-slide-item">
+              <div class="branding-header-centered">
+                <img src="/logos/logo tunisian engineering congress week 1.0.png" alt="TEC Week 1.0 Logo" class="b-logo-large b-logo-tec1">
+                <h3 class="b-title-centered b-title-tec1">TUNISIAN ENGINEERING CONGRESS WEEK 1.0</h3>
+              </div>
+              <div class="campaign-grid">
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engineering congress week 1.0 branding/471280709_122139049328380045_2275095955086216941_n.jpg">
+                  <img src="/tunisian engineering congress week 1.0 branding/471280709_122139049328380045_2275095955086216941_n.jpg" alt="Groot Registration" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engineering congress week 1.0 branding/471512932_122140259660380045_6501544314484858442_n.jpg">
+                  <img src="/tunisian engineering congress week 1.0 branding/471512932_122140259660380045_6501544314484858442_n.jpg" alt="When will it happen" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engineering congress week 1.0 branding/471632133_122140187486380045_7894102206647280729_n.jpg">
+                  <img src="/tunisian engineering congress week 1.0 branding/471632133_122140187486380045_7894102206647280729_n.jpg" alt="Announce Hotel" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engineering congress week 1.0 branding/471665293_122140154588380045_2724253135085449871_n.jpg">
+                  <img src="/tunisian engineering congress week 1.0 branding/471665293_122140154588380045_2724253135085449871_n.jpg" alt="Masquerade Party" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engineering congress week 1.0 branding/471857710_122140151024380045_2354039373988543328_n.jpg">
+                  <img src="/tunisian engineering congress week 1.0 branding/471857710_122140151024380045_2354039373988543328_n.jpg" alt="Registration Announcement" loading="lazy">
+                </div>
+                <div class="poster-card lightbox-trigger" data-img="/tunisian engineering congress week 1.0 branding/471964169_122140187318380045_5026923920166352628_n.jpg">
+                  <img src="/tunisian engineering congress week 1.0 branding/471964169_122140187318380045_5026923920166352628_n.jpg" alt="Website Launched" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Indicator Dots -->
+          <div class="branding-dots" id="branding-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== 6. BRANDING LOGOS SHOWCASE ====================-->
+    <section class="section logos-section" id="logos-showcase">
+      <div class="container">
+        <div class="section-title-wrap reveal">
+          <h2 class="section-title">BRANDING LOGOS</h2>
+        </div>
+
+        <!-- 5 Logos Equalized Grid -->
+        <div class="branding-logos-grid reveal">
+          <div class="logo-box">
+            <img src="/logos/logo tunisian students and young professionals congress 13th edition.png" alt="TSYP 13 Logo" class="brand-logo-img logo-tsyp13">
+          </div>
+          <div class="logo-box">
+            <img src="/logos/logo tunisian engineering congress week 2.0.png" alt="TEC Week 2.0 Logo" class="brand-logo-img">
+          </div>
+          <div class="logo-box">
+            <img src="/logos/pitch yourself for a carreer_logo.png" alt="Pitch Yourself For A Career Logo" class="brand-logo-img logo-pyfac">
+          </div>
+          <div class="logo-box">
+            <img src="/logos/logo tunisian engineering congress week 1.0.png" alt="TEC Week 1.0 Logo" class="brand-logo-img logo-tec1">
+          </div>
+          <div class="logo-box">
+            <img src="/logos/logos_enis_sb white-03.png" alt="IEEE ENIS Logo" class="brand-logo-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== 7. CONNECT SECTION ====================-->
+    <section class="section connect-section" id="connect">
+      <div class="container">
+        <div class="connect-inner reveal">
+          <div class="connect-header">
+            <h2 class="connect-headline">Let's Build<br>Something <span class="text-gradient">Epic</span></h2>
+            <p class="connect-sub">Looking for an audio visual artist & media manager who speaks fluent tech and creative direction?</p>
+          </div>
+          
+          <form action="#" class="connect-form" id="contact-form">
+            <div class="form-row">
+              <input type="text" placeholder="Your Name or Agency" required class="form-input">
+              <input type="email" placeholder="Your Email Address" required class="form-input">
+            </div>
+            <textarea placeholder="Tell me about your project brief or campaign needs..." required class="form-input form-textarea"></textarea>
+            <button type="submit" class="btn btn-gradient">
+              <i class="ri-mail-send-fill"></i> Send Project Brief
+            </button>
+          </form>
+        </div>
+
+        <!-- All Rights Reserved Footer Bar -->
+        <footer class="footer-copyright">
+          <p>© 2026 Yessine Fakhfakh. All Rights Reserved.</p>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!--==================== LIGHTBOX MODAL ====================-->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close Lightbox"><i class="ri-close-line"></i></button>
+    <img src="" alt="Zoomed View" class="lightbox__img" id="lightbox-img">
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/index.js"></script>
+</body>
+</html>
