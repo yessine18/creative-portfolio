@@ -1628,6 +1628,11 @@ ul { list-style: none; }
   -webkit-text-fill-color: transparent;
 }
 
+.highlight-orange {
+  color: var(--accent-orange);
+  font-weight: 800;
+}
+
 .connect-sub {
   font-family: var(--font-body);
   font-size: 1rem;
