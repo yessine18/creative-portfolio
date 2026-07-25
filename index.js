@@ -37,6 +37,15 @@ function initNavEvents() {
       if (navMenu) navMenu.classList.remove('show-menu');
     });
   });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu && navMenu.classList.contains('show-menu')) {
+      if (!navMenu.contains(e.target) && navToggle && !navToggle.contains(e.target)) {
+        navMenu.classList.remove('show-menu');
+      }
+    }
+  });
   
   // Highlight navigation links on scroll
   const sections = document.querySelectorAll('section[id]');
