@@ -232,8 +232,9 @@ function initLightbox() {
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.lightbox-trigger');
     if (trigger) {
-      const imgUrl = trigger.dataset.img || trigger.querySelector('img')?.src;
-      const imgAlt = trigger.querySelector('img')?.alt || 'Showcase Image';
+      const innerImg = trigger.tagName === 'IMG' ? trigger : trigger.querySelector('img');
+      const imgUrl = innerImg ? innerImg.src : trigger.dataset.img;
+      const imgAlt = (innerImg ? innerImg.alt : null) || 'Showcase Image';
       
       if (imgUrl) {
         lightboxImg.src = imgUrl;
@@ -248,7 +249,9 @@ function initLightbox() {
   }
   
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
+    if (e.target === lightbox || e.target.classList.contains('lightbox')) {
+      closeLightbox();
+    }
   });
   
   window.addEventListener('keydown', (e) => {
