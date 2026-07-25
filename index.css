@@ -740,6 +740,109 @@ ul { list-style: none; }
   box-shadow: 0 4px 15px rgba(255, 85, 0, 0.35);
 }
 
+/* Brand Color Specific Filter Buttons */
+/* TSYP 13 - Teal */
+.v-btn--tsyp13 {
+  border-color: rgba(0, 178, 169, 0.4);
+  color: #00E5D9;
+  background: rgba(0, 178, 169, 0.08);
+}
+.v-btn--tsyp13:hover {
+  background: rgba(0, 178, 169, 0.2);
+  border-color: #00E5D9;
+}
+.v-btn--tsyp13.active {
+  background: #00B2A9 !important;
+  color: #FFFFFF !important;
+  border-color: #00E5D9 !important;
+  box-shadow: 0 4px 20px rgba(0, 178, 169, 0.5) !important;
+}
+
+/* PYFAC X - Deep Orange */
+.v-btn--pyfac {
+  border-color: rgba(255, 85, 0, 0.4);
+  color: #FF7733;
+  background: rgba(255, 85, 0, 0.08);
+}
+.v-btn--pyfac:hover {
+  background: rgba(255, 85, 0, 0.2);
+  border-color: #FF5500;
+}
+.v-btn--pyfac.active {
+  background: #FF5500 !important;
+  color: #FFFFFF !important;
+  border-color: #FF7733 !important;
+  box-shadow: 0 4px 20px rgba(255, 85, 0, 0.5) !important;
+}
+
+/* TecWeek 2.0 - Purple */
+.v-btn--tec2 {
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #C084FC;
+  background: rgba(168, 85, 247, 0.08);
+}
+.v-btn--tec2:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: #A855F7;
+}
+.v-btn--tec2.active {
+  background: #9333EA !important;
+  color: #FFFFFF !important;
+  border-color: #C084FC !important;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.5) !important;
+}
+
+/* TecWeek 1.0 - Light Sky Blue */
+.v-btn--tec1 {
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.08);
+}
+.v-btn--tec1:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38BDF8;
+}
+.v-btn--tec1.active {
+  background: #0EA5E9 !important;
+  color: #FFFFFF !important;
+  border-color: #38BDF8 !important;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.5) !important;
+}
+
+/* IEEE ENIS - Blue */
+.v-btn--enis {
+  border-color: rgba(37, 99, 235, 0.4);
+  color: #60A5FA;
+  background: rgba(37, 99, 235, 0.08);
+}
+.v-btn--enis:hover {
+  background: rgba(37, 99, 235, 0.2);
+  border-color: #3B82F6;
+}
+.v-btn--enis.active {
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  border-color: #60A5FA !important;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5) !important;
+}
+
+/* Hello World 4.0 - Light Brown / Warm Sepia */
+.v-btn--helloworld {
+  border-color: rgba(210, 180, 140, 0.4);
+  color: #E6C280;
+  background: rgba(210, 180, 140, 0.08);
+}
+.v-btn--helloworld:hover {
+  background: rgba(210, 180, 140, 0.2);
+  border-color: #E6C280;
+}
+.v-btn--helloworld.active {
+  background: #B8860B !important;
+  color: #FFFFFF !important;
+  border-color: #F0E68C !important;
+  box-shadow: 0 4px 20px rgba(184, 134, 11, 0.5) !important;
+}
+
 .filter-count {
   font-size: 0.7rem;
   opacity: 0.85;
