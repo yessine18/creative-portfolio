@@ -1509,9 +1509,7 @@ ul { list-style: none; }
   }
 
   .sw-dash__desc {
-    font-size: 0.8rem;
-    color: #D4D4D8;
-    line-height: 1.45;
+    display: none !important;
   }
 
   .sw-dash__chips {
