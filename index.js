@@ -1,7 +1,7 @@
 // ----------------------------------------------------
 // NOVA VISUALS 2026 INTERACTION SYSTEM
 // ----------------------------------------------------
-window.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   initNavEvents();
   initRevealAnimations();
   initVideoSection();
@@ -11,7 +11,13 @@ window.addEventListener('DOMContentLoaded', () => {
   initBrandingLogosMarquee();
   initLightbox();
   initContactForm();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 // ----------------------------------------------------
 // NAVIGATION BAR & ACTIVE LINK HIGHLIGHTING
@@ -175,8 +181,9 @@ function initBrandingSlider() {
   const prevBtn = document.getElementById('branding-prev');
   const nextBtn = document.getElementById('branding-next');
   const dotsContainer = document.getElementById('branding-dots');
+  const campaignTabs = document.querySelectorAll('.campaign-tab');
   
-  if (!track || !prevBtn || !nextBtn) return;
+  if (!track) return;
   
   const slides = track.querySelectorAll('.branding-slide-item');
   if (!slides.length) return;
@@ -193,6 +200,15 @@ function initBrandingSlider() {
       dotsContainer.appendChild(dot);
     }
   }
+
+  campaignTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const slideIndex = parseInt(tab.dataset.slide, 10);
+      if (!isNaN(slideIndex)) {
+        goToSlide(slideIndex);
+      }
+    });
+  });
   
   function updateSlider() {
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -203,6 +219,13 @@ function initBrandingSlider() {
         dot.classList.toggle('active', idx === currentIndex);
       });
     }
+
+    if (campaignTabs.length) {
+      campaignTabs.forEach((tab) => {
+        const slideIndex = parseInt(tab.dataset.slide, 10);
+        tab.classList.toggle('active', slideIndex === currentIndex);
+      });
+    }
   }
   
   function goToSlide(index) {
@@ -210,12 +233,43 @@ function initBrandingSlider() {
     updateSlider();
   }
   
-  prevBtn.addEventListener('click', () => {
-    goToSlide(currentIndex - 1);
-  });
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+    });
+  }
   
-  nextBtn.addEventListener('click', () => {
-    goToSlide(currentIndex + 1);
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+    });
+  }
+
+  // Touch Swipe Support for Mobile & Tablets
+  let startX = 0;
+  let dist = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    dist = 0;
+  }, { passive: true });
+
+  track.addEventListener('touchmove', (e) => {
+    if (!startX) return;
+    const currentX = e.touches[0].clientX;
+    dist = currentX - startX;
+  }, { passive: true });
+
+  track.addEventListener('touchend', () => {
+    if (Math.abs(dist) > 30) {
+      if (dist < 0) {
+        goToSlide(currentIndex + 1);
+      } else {
+        goToSlide(currentIndex - 1);
+      }
+    }
+    startX = 0;
+    dist = 0;
   });
 }
 
@@ -231,20 +285,29 @@ function initLightbox() {
   
   // Use event delegation for dynamically cloned poster triggers
   document.addEventListener('click', (e) => {
+    // Ignore clicks on interactive buttons or links
+    if (e.target.closest('button') || e.target.closest('a')) return;
+
     const trigger = e.target.closest('.lightbox-trigger');
     if (trigger) {
-      const innerImg = trigger.tagName === 'IMG' ? trigger : trigger.querySelector('img');
+      const innerImg = trigger.querySelector('img') || (trigger.tagName === 'IMG' ? trigger : null);
       const imgUrl = innerImg ? innerImg.src : trigger.dataset.img;
-      const imgAlt = (innerImg ? innerImg.alt : null) || 'Showcase Image';
+      const imgAlt = (innerImg ? innerImg.alt : null) || 'Enlarged View';
       
       if (imgUrl) {
         lightboxImg.src = imgUrl;
         lightboxImg.alt = imgAlt;
         lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
       }
     }
   });
   
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   if (lightboxClose) {
     lightboxClose.addEventListener('click', closeLightbox);
   }
@@ -260,10 +323,6 @@ function initLightbox() {
       closeLightbox();
     }
   });
-  
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-  }
 }
 
 // ----------------------------------------------------
@@ -357,7 +416,7 @@ function initVideoSection() {
           expandText.textContent = 'Show Less';
           expandIcon.className = 'ri-arrow-up-s-line';
         } else {
-          expandText.textContent = `Show All ${videoCards.length} Video Productions`;
+          expandText.textContent = `Show All ${vCards.length} Video Productions`;
           expandIcon.className = 'ri-arrow-down-s-line';
         }
       }
