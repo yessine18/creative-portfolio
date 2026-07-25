@@ -1419,6 +1419,10 @@ ul { list-style: none; }
     margin-inline: auto;
   }
 
+  .hero__visual {
+    display: none !important;
+  }
+
   .hero__spotlight-radial {
     width: 320px;
     height: 320px;
