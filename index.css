@@ -1429,7 +1429,7 @@ ul { list-style: none; }
     filter: blur(55px);
   }
 
-  /* Used Softwares Mobile Alignment */
+  /* Creative Software Stack Mobile 2-Column Grid */
   .sw-cat-block {
     align-items: center;
     text-align: center;
@@ -1441,79 +1441,112 @@ ul { list-style: none; }
     text-align: center;
     width: 100%;
     margin-inline: auto;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
   }
 
-  .sw-cat-grid, .sw-cat-grid--3 {
+  .sw-cat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
     width: 100%;
-    max-width: 480px;
-    margin-inline: auto;
+  }
+
+  .sw-cat-grid--3 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .sw-cat-grid--3 .sw-dash-card:last-child {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 260px;
+    justify-self: center;
   }
 
   .sw-dash-card {
-    padding: 1.75rem 1.4rem;
-    border-radius: 20px;
-    gap: 1rem;
+    padding: 1.25rem 0.9rem;
+    border-radius: 16px;
+    gap: 0.65rem;
     background: #141418;
     border: 1px solid rgba(255, 255, 255, 0.16);
     width: 100%;
   }
 
+  .sw-dash__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
   .sw-dash__icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    padding: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    padding: 6px;
+  }
+
+  .sw-dash__cat {
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
   }
 
   .sw-dash__title {
-    font-size: 1.3rem;
+    font-size: 1.02rem;
     font-weight: 800;
     color: #FFFFFF;
   }
 
   .sw-dash__desc {
-    font-size: 0.95rem;
-    color: #E4E4E7;
-    line-height: 1.65;
+    font-size: 0.8rem;
+    color: #D4D4D8;
+    line-height: 1.45;
+  }
+
+  .sw-dash__chips {
+    gap: 0.35rem;
   }
 
   .sw-dash__chips span {
-    font-size: 0.72rem;
+    font-size: 0.62rem;
     font-weight: 700;
     color: #FFFFFF;
     background: rgba(255, 255, 255, 0.08);
-    padding: 0.3rem 0.65rem;
+    padding: 0.2rem 0.45rem;
+    border-radius: 6px;
   }
 
   /* Journey Cards Mobile */
   .journey-card-dash {
-    flex: 0 0 300px;
-    min-height: 220px;
-    padding: 1.4rem 1.3rem;
-    gap: 0.75rem;
+    flex: 0 0 290px;
+    min-height: 210px;
+    padding: 1.3rem 1.2rem;
+    gap: 0.65rem;
   }
 
   .j-num-badge {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     color: var(--accent-orange);
   }
 
   .j-date-badge {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: #FFFFFF;
     background: rgba(255, 255, 255, 0.1);
-    padding: 0.25rem 0.75rem;
+    padding: 0.25rem 0.65rem;
   }
 
   /* Social Posters Mobile */
   .poster-card {
-    flex: 0 0 210px;
-    width: 210px;
-    border-radius: 16px;
+    flex: 0 0 190px;
+    width: 190px;
+    border-radius: 14px;
   }
 
-  /* Events Branding Mobile */
+  /* Events Branding Mobile 2-Column Grid */
   .branding-slider-wrap {
     padding-block: 0.5rem 2rem;
   }
@@ -1526,7 +1559,7 @@ ul { list-style: none; }
   }
 
   .branding-header-centered {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1535,43 +1568,42 @@ ul { list-style: none; }
   }
 
   .b-logo-large {
-    max-height: 110px;
-    max-width: 260px;
+    max-height: 100px;
+    max-width: 240px;
     margin-inline: auto;
   }
 
   .b-logo-large.b-logo-tsyp13,
   .b-logo-large.b-logo-tec1 {
-    max-height: 130px !important;
-    max-width: 280px !important;
+    max-height: 120px !important;
+    max-width: 250px !important;
   }
 
   .b-title-centered {
-    font-size: clamp(1.1rem, 4.5vw, 1.5rem) !important;
+    font-size: clamp(1.05rem, 4.2vw, 1.4rem) !important;
     padding-inline: 0.5rem;
     text-align: center;
   }
 
   .campaign-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
     width: 100%;
   }
 
   .campaign-grid .poster-card {
-    flex: 0 1 calc(50% - 0.75rem);
-    min-width: 140px;
-    max-width: 220px;
     width: 100%;
+    max-width: 100%;
+    flex: 1 1 auto;
+    border-radius: 12px;
   }
 
   .slider-btn {
-    width: 42px;
-    height: 42px;
-    font-size: 1.25rem;
-    top: 55px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    top: 50px;
   }
 
   .slider-btn.btn-prev { left: 0rem; }
@@ -1583,7 +1615,7 @@ ul { list-style: none; }
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem 2rem;
+    gap: 1.25rem 1.5rem;
     padding: 2rem 0.5rem;
     width: 100%;
     max-width: 500px;
@@ -1591,10 +1623,10 @@ ul { list-style: none; }
   }
 
   .logo-box {
-    flex: 0 1 calc(50% - 1.5rem);
-    min-width: 130px;
-    max-width: 180px;
-    height: 110px;
+    flex: 0 1 calc(50% - 1.25rem);
+    min-width: 120px;
+    max-width: 170px;
+    height: 100px;
     padding: 0.25rem;
     display: flex;
     justify-content: center;
@@ -1602,13 +1634,13 @@ ul { list-style: none; }
   }
 
   .brand-logo-img {
-    max-height: 85px;
-    max-width: 150px;
+    max-height: 80px;
+    max-width: 140px;
   }
 
   .logo-tsyp13, .logo-tec1, .logo-pyfac {
-    max-height: 105px !important;
-    max-width: 180px !important;
+    max-height: 100px !important;
+    max-width: 170px !important;
   }
 
   /* Connect Section Mobile */
@@ -1669,13 +1701,18 @@ ul { list-style: none; }
     font-size: clamp(2rem, 9vw, 2.75rem);
   }
 
-  .hero__subject-img {
-    max-width: 240px;
+  .sw-cat-grid, .sw-cat-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
   }
 
-  .campaign-grid .poster-card {
-    flex: 0 1 100%;
-    max-width: 280px;
+  .sw-dash-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .campaign-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
   }
 
   .journey-card-dash {
