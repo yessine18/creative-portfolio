@@ -357,7 +357,7 @@ function initVideoSection() {
           expandText.textContent = 'Show Less';
           expandIcon.className = 'ri-arrow-up-s-line';
         } else {
-          expandText.textContent = 'Show All 26 Video Productions';
+          expandText.textContent = `Show All ${videoCards.length} Video Productions`;
           expandIcon.className = 'ri-arrow-down-s-line';
         }
       }

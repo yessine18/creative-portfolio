@@ -1137,6 +1137,27 @@ ul { list-style: none; }
   box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
 }
 
+.crown-card--palestine::before {
+  background: linear-gradient(90deg, #E4312B, #007A3D, #000000);
+}
+
+.palestine-badge {
+  background: rgba(228, 49, 43, 0.15);
+  color: #FF4D4D;
+  border: 1px solid rgba(0, 122, 61, 0.5);
+}
+
+.palestine-launch {
+  background: linear-gradient(135deg, #E4312B, #007A3D);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(228, 49, 43, 0.4);
+}
+
+.palestine-launch:hover {
+  background: linear-gradient(135deg, #FF4D4D, #00A854);
+  box-shadow: 0 8px 25px rgba(0, 122, 61, 0.5);
+}
+
 .v-brand-pill {
   font-family: var(--font-display);
   font-size: 0.68rem;
