@@ -2,6 +2,8 @@
 // NOVA VISUALS 2026 INTERACTION SYSTEM
 // ----------------------------------------------------
 function initApp() {
+  initThemeToggle();
+  initLanguageToggle();
   initNavEvents();
   initRevealAnimations();
   initVideoSection();
@@ -442,3 +444,163 @@ function initVideoSection() {
   // Initial run
   updateVideoVisibility();
 }
+
+// ----------------------------------------------------
+// LIGHT MODE & DARK MODE THEME TOGGLE SYSTEM
+// ----------------------------------------------------
+function initThemeToggle() {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  
+  // Read theme preference from localStorage (default: dark)
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+    if (themeIcon) themeIcon.className = 'ri-moon-line';
+  } else {
+    document.body.classList.remove('light-theme');
+    if (themeIcon) themeIcon.className = 'ri-sun-line';
+  }
+  
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-theme');
+      const newTheme = isLight ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+      
+      if (themeIcon) {
+        themeIcon.className = isLight ? 'ri-moon-line' : 'ri-sun-line';
+      }
+    });
+  }
+}
+
+// ----------------------------------------------------
+// FRENCH & ENGLISH BILINGUAL TRANSLATION SYSTEM
+// ----------------------------------------------------
+const translations = {
+  en: {
+    nav_cover: "Cover",
+    nav_softwares: "Softwares",
+    nav_journey: "Journey",
+    nav_videos: "Videos",
+    nav_posters: "Posters",
+    nav_branding: "Branding",
+    nav_logos: "Logos",
+    nav_connect: "Connect",
+    nav_portfolio: "Portfolio",
+    hero_title: "Audio Visual Artist",
+    hero_bio: "Crafting end-to-end high-impact media campaigns, 3D motion graphics, brand identities, and video production for national-scale tech events & congresses across Tunisia.",
+    hero_portfolio_cta: "Visit Professional Portfolio",
+    hero_scroll: "Scroll Down",
+    sw_title: "CREATIVE SOFTWARE STACK",
+    sw_subtitle: "Industry-standard tools powering every pixel & frame",
+    sw_cat1: "Graphic Design",
+    sw_cat2: "Video & Audio Production",
+    journey_title: "CREATIVE JOURNEY",
+    journey_subtitle: "Leadership, awards, and media manager roles across national events",
+    video_badge: "40+ PRODUCTIONS IN 2.5 YEARS",
+    video_title: "VIDEO PRODUCTIONS",
+    video_subtitle: "Aftermovies, 3D intro reveals, congress teasers & 17m giant screen main stage productions",
+    posters_title: "SOCIAL MEDIA POSTERS",
+    posters_subtitle: "Continuous infinite showcase of promotional designs — <strong class=\"highlight-orange\">100+ posters</strong> created across national campaigns (Hover to pause / Click to enlarge)",
+    branding_title: "SOCIAL MEDIA EVENTS BRANDING",
+    branding_subtitle: "Click a campaign tab or swipe left/right to view full event brand identity showcases",
+    logos_title: "BRANDING LOGOS",
+    connect_headline: "Let's Build<br>Something <span class=\"text-gradient\">Epic</span>",
+    connect_sub: "Looking for an audio visual artist & media manager who speaks fluent tech and creative direction?",
+    form_name: "Your Name or Agency",
+    form_email: "Your Email Address",
+    form_message: "Tell me about your project brief or campaign needs...",
+    form_submit: "Send Project Brief",
+    footer_rights: "© 2026 Yessine Fakhfakh. All Rights Reserved."
+  },
+  fr: {
+    nav_cover: "Accueil",
+    nav_softwares: "Logiciels",
+    nav_journey: "Parcours",
+    nav_videos: "Vidéos",
+    nav_posters: "Affiches",
+    nav_branding: "Identité Visuelle",
+    nav_logos: "Logos",
+    nav_connect: "Contact",
+    nav_portfolio: "Portfolio",
+    hero_title: "Artiste Audiovisuel",
+    hero_bio: "Conception de campagnes média à fort impact, motion design 3D, identités de marque et production vidéo pour des événements technologiques et congrès d'envergure nationale en Tunisie.",
+    hero_portfolio_cta: "Visiter le Portfolio Professionnel",
+    hero_scroll: "Défiler vers le bas",
+    sw_title: "STACK DE LOGICIELS CRÉATIFS",
+    sw_subtitle: "Des outils professionnels au service de chaque pixel et image",
+    sw_cat1: "Design Graphique",
+    sw_cat2: "Production Vidéo & Audio",
+    journey_title: "PARCOURS CRÉATIF",
+    journey_subtitle: "Leadership, prix et rôles de responsable média lors d'événements nationaux",
+    video_badge: "40+ PRODUCTIONS EN 2.5 ANS",
+    video_title: "PRODUCTIONS VIDÉO",
+    video_subtitle: "Aftermovies, révélations 3D, teasers de congrès et productions pour écran géant de 17m",
+    posters_title: "AFFICHES RÉSEAUX SOCIAUX",
+    posters_subtitle: "Galerie continue de créations publicitaires — <strong class=\"highlight-orange\">Plus de 100 affiches</strong> conçues pour des campagnes nationales (Survoler pour mettre en pause / Clic pour agrandir)",
+    branding_title: "BRANDING D'ÉVÉNEMENTIEL",
+    branding_subtitle: "Cliquez sur un onglet de campagne ou balayez pour voir les identités visuelles complètes",
+    logos_title: "LOGOS ET MARQUES",
+    connect_headline: "Créons Ensemble<br>Quelque Chose d'<span class=\"text-gradient\">Épique</span>",
+    connect_sub: "Vous recherchez un artiste audiovisuel et responsable média maîtrisant direction créative et univers tech ?",
+    form_name: "Votre Nom ou Agence",
+    form_email: "Votre Adresse Email",
+    form_message: "Parlez-moi de votre projet ou de vos besoins de campagne...",
+    form_submit: "Envoyer le Brief Projet",
+    footer_rights: "© 2026 Yessine Fakhfakh. Tous droits réservés."
+  }
+};
+
+function setLanguage(lang) {
+  const currentDict = translations[lang] || translations.en;
+  
+  // Update innerHTML / textContent for elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (currentDict[key]) {
+      el.innerHTML = currentDict[key];
+    }
+  });
+  
+  // Update placeholders for inputs with data-i18n-ph
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.dataset.i18nPh;
+    if (currentDict[key]) {
+      el.placeholder = currentDict[key];
+    }
+  });
+  
+  // Update language toggle indicator button text
+  const langIndicator = document.getElementById('lang-indicator');
+  const langToggleBtn = document.getElementById('lang-toggle');
+  
+  if (langIndicator) {
+    // If language is currently 'en', display 'FR' on button so user can switch to French
+    // If language is currently 'fr', display 'EN' on button so user can switch to English
+    langIndicator.textContent = lang === 'fr' ? 'EN' : 'FR';
+  }
+  if (langToggleBtn) {
+    langToggleBtn.title = lang === 'fr' ? 'Traduire en Anglais (Translate to English)' : 'Traduire en Français (Translate to French)';
+  }
+  
+  localStorage.setItem('lang', lang);
+}
+
+function initLanguageToggle() {
+  const langToggleBtn = document.getElementById('lang-toggle');
+  const savedLang = localStorage.getItem('lang') || 'en';
+  
+  setLanguage(savedLang);
+  
+  if (langToggleBtn) {
+    langToggleBtn.addEventListener('click', () => {
+      const currentLang = localStorage.getItem('lang') || 'en';
+      const newLang = currentLang === 'en' ? 'fr' : 'en';
+      setLanguage(newLang);
+    });
+  }
+}
+
