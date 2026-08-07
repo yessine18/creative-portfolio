@@ -62,22 +62,13 @@
 
       <!-- Right: Controls & Mobile Toggle -->
       <div class="nav__actions">
-        <!-- Glowing Portfolio Button -->
-        <a href="https://fakhfakhyessine.me/yessine-portfolio/" target="_blank" rel="noopener noreferrer" class="glowing-portfolio-btn glowing-portfolio-btn--nav">
-          <i class="ri-sparkles-fill"></i>
-          <span data-i18n="nav_portfolio">Portfolio</span>
-          <i class="ri-arrow-right-up-line"></i>
-        </a>
 
-        <!-- Translate FR / EN Toggle -->
-        <button class="lang-toggle-btn" id="lang-toggle" aria-label="Toggle language" title="Translate to French">
-          <span class="lang-code" id="lang-indicator">FR</span>
-        </button>
-
-        <!-- Light / Dark Mode Toggle -->
-        <button class="nav-icon-btn theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle Light/Dark Mode">
-          <i class="ri-sun-line" id="theme-icon"></i>
-        </button>
+        <!-- Language Segmented Pill -->
+        <div class="lang-pill" id="lang-toggle" role="button" aria-label="Toggle language" title="Switch language">
+          <span class="lang-pill__option" data-lang="en">EN</span>
+          <span class="lang-pill__option" data-lang="fr">FR</span>
+          <div class="lang-pill__slider" id="lang-slider"></div>
+        </div>
 
         <!-- Mobile Menu Toggle -->
         <button class="nav-icon-btn nav__toggle" id="nav-toggle" aria-label="Open menu">
@@ -102,11 +93,9 @@
             Crafting end-to-end high-impact media campaigns, 3D motion graphics, brand identities, and video production for national-scale tech events & congresses across Tunisia.
           </p>
 
-          <!-- Hero Glowing Portfolio CTA -->
+          <!-- Hero Portfolio CTA -->
           <div class="hero__cta-wrap">
-            <a href="https://fakhfakhyessine.me/yessine-portfolio/" target="_blank" rel="noopener noreferrer" class="glowing-portfolio-btn glowing-portfolio-btn--hero">
-              <div class="glowing-btn-aura"></div>
-              <i class="ri-sparkles-fill"></i>
+            <a href="https://fakhfakhyessine.me/yessine-portfolio/" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn portfolio-link-btn--hero">
               <span data-i18n="hero_portfolio_cta">Visit Professional Portfolio</span>
               <i class="ri-arrow-right-line"></i>
             </a>
@@ -1232,6 +1221,10 @@
             <a href="https://www.instagram.com/fakhfakhyessine1/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
             <a href="https://www.facebook.com/yessine.fakhfakh.9/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
           </div>
+          <a href="https://fakhfakhyessine.me/yessine-portfolio/" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn portfolio-link-btn--footer" data-i18n="hero_portfolio_cta">
+            <span data-i18n="footer_portfolio">Professional Portfolio</span>
+            <i class="ri-arrow-right-up-line"></i>
+          </a>
         </footer>
       </div>
     </section>

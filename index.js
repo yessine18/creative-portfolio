@@ -2,7 +2,8 @@
 // NOVA VISUALS 2026 INTERACTION SYSTEM
 // ----------------------------------------------------
 function initApp() {
-  initThemeToggle();
+  document.body.classList.remove('light-theme');
+  localStorage.removeItem('theme');
   initLanguageToggle();
   initNavEvents();
   initRevealAnimations();
@@ -15,11 +16,7 @@ function initApp() {
   initContactForm();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initApp);
-} else {
-  initApp();
-}
+// initApp is called at the bottom of the file after all declarations
 
 // ----------------------------------------------------
 // NAVIGATION BAR & ACTIVE LINK HIGHLIGHTING
@@ -446,35 +443,6 @@ function initVideoSection() {
 }
 
 // ----------------------------------------------------
-// LIGHT MODE & DARK MODE THEME TOGGLE SYSTEM
-// ----------------------------------------------------
-function initThemeToggle() {
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  
-  // Read theme preference from localStorage (default: dark)
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-theme');
-    if (themeIcon) themeIcon.className = 'ri-moon-line';
-  } else {
-    document.body.classList.remove('light-theme');
-    if (themeIcon) themeIcon.className = 'ri-sun-line';
-  }
-  
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const isLight = document.body.classList.toggle('light-theme');
-      const newTheme = isLight ? 'light' : 'dark';
-      localStorage.setItem('theme', newTheme);
-      
-      if (themeIcon) {
-        themeIcon.className = isLight ? 'ri-moon-line' : 'ri-sun-line';
-      }
-    });
-  }
-}
 
 // ----------------------------------------------------
 // FRENCH & ENGLISH BILINGUAL TRANSLATION SYSTEM
@@ -514,7 +482,8 @@ const translations = {
     form_email: "Your Email Address",
     form_message: "Tell me about your project brief or campaign needs...",
     form_submit: "Send Project Brief",
-    footer_rights: "© 2026 Yessine Fakhfakh. All Rights Reserved."
+    footer_rights: "© 2026 Yessine Fakhfakh. All Rights Reserved.",
+    footer_portfolio: "Professional Portfolio"
   },
   fr: {
     nav_cover: "Accueil",
@@ -550,14 +519,31 @@ const translations = {
     form_email: "Votre Adresse Email",
     form_message: "Parlez-moi de votre projet ou de vos besoins de campagne...",
     form_submit: "Envoyer le Brief Projet",
-    footer_rights: "© 2026 Yessine Fakhfakh. Tous droits réservés."
+    footer_rights: "© 2026 Yessine Fakhfakh. Tous droits réservés.",
+    footer_portfolio: "Portfolio Professionnel"
   }
 };
+
+function updateLangPillUI(lang) {
+  const langPill = document.getElementById('lang-toggle');
+  const options = document.querySelectorAll('.lang-pill__option');
+  
+  // Update active option highlight
+  options.forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.lang === lang);
+  });
+  
+  // Move slider via CSS class
+  if (langPill) {
+    langPill.classList.toggle('fr-active', lang === 'fr');
+    langPill.title = lang === 'fr' ? 'Traduire en Anglais' : 'Translate to French';
+  }
+}
 
 function setLanguage(lang) {
   const currentDict = translations[lang] || translations.en;
   
-  // Update innerHTML / textContent for elements with data-i18n
+  // Update innerHTML for elements with data-i18n
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (currentDict[key]) {
@@ -573,30 +559,18 @@ function setLanguage(lang) {
     }
   });
   
-  // Update language toggle indicator button text
-  const langIndicator = document.getElementById('lang-indicator');
-  const langToggleBtn = document.getElementById('lang-toggle');
-  
-  if (langIndicator) {
-    // If language is currently 'en', display 'FR' on button so user can switch to French
-    // If language is currently 'fr', display 'EN' on button so user can switch to English
-    langIndicator.textContent = lang === 'fr' ? 'EN' : 'FR';
-  }
-  if (langToggleBtn) {
-    langToggleBtn.title = lang === 'fr' ? 'Traduire en Anglais (Translate to English)' : 'Traduire en Français (Translate to French)';
-  }
-  
+  updateLangPillUI(lang);
   localStorage.setItem('lang', lang);
 }
 
 function initLanguageToggle() {
-  const langToggleBtn = document.getElementById('lang-toggle');
+  const langPill = document.getElementById('lang-toggle');
   const savedLang = localStorage.getItem('lang') || 'en';
   
   setLanguage(savedLang);
   
-  if (langToggleBtn) {
-    langToggleBtn.addEventListener('click', () => {
+  if (langPill) {
+    langPill.addEventListener('click', () => {
       const currentLang = localStorage.getItem('lang') || 'en';
       const newLang = currentLang === 'en' ? 'fr' : 'en';
       setLanguage(newLang);
@@ -604,3 +578,12 @@ function initLanguageToggle() {
   }
 }
 
+// ----------------------------------------------------
+// BOOTSTRAP — must be at the bottom so all const/let
+// declarations (e.g. translations) are initialized
+// ----------------------------------------------------
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
