@@ -56,10 +56,15 @@ function initNavEvents() {
   
   // Highlight navigation links on scroll
   const sections = document.querySelectorAll('section[id]');
-  
+  const header = document.getElementById('header');
+
   function scrollActive() {
     const scrollY = window.pageYOffset;
-    
+
+    if (header) {
+      header.classList.toggle('scroll-header', scrollY > 24);
+    }
+
     sections.forEach(current => {
       const sectionHeight = current.offsetHeight;
       const sectionTop = current.offsetTop - 100;
@@ -75,7 +80,8 @@ function initNavEvents() {
       }
     });
   }
-  window.addEventListener('scroll', scrollActive);
+  window.addEventListener('scroll', scrollActive, { passive: true });
+  scrollActive();
 }
 
 // ----------------------------------------------------
@@ -116,7 +122,8 @@ function initRevealAnimations() {
       sectionChildIndex = 0;
     }
     
-    el.dataset.delay = sectionChildIndex * 120;
+    // Cap the stagger so dense sections still resolve quickly
+    el.dataset.delay = Math.min(sectionChildIndex, 4) * 90;
     sectionChildIndex++;
     
     observer.observe(el);
@@ -127,7 +134,7 @@ function initRevealAnimations() {
     heroElements.forEach((el, i) => {
       setTimeout(() => {
         el.classList.add('active');
-      }, 200 + i * 200);
+      }, 120 + i * 110);
     });
   });
 }
