@@ -2291,6 +2291,7 @@ button, input, textarea { font: inherit; color: inherit; }
   .logo-box { height: 84px; }
   .brand-logo-img { max-height: 62px; max-width: 128px; }
   .logo-tsyp13, .logo-tec1, .logo-pyfac { max-height: 76px; max-width: 150px; }
+}
 
 /* Small phones */
 @media screen and (max-width: 560px) {
