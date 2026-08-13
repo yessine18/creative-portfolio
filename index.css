@@ -8,14 +8,6 @@
 }
 
 @font-face {
-  font-family: 'Luxerie Display';
-  src: url('/assets/Luxerie Display.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Mollies';
   src: url('/assets/MOLLIES Bold.ttf') format('truetype');
   font-weight: 700;
@@ -37,7 +29,7 @@
   background: #FF5500;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 100000;
   transform: translate(-50%, -50%);
   transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
   will-change: transform;
@@ -53,7 +45,7 @@
   border: 1.5px solid rgba(255, 85, 0, 0.45);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 99998;
+  z-index: 99999;
   transform: translate(-50%, -50%);
   transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
               height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
@@ -407,6 +399,8 @@ button, input, textarea { font: inherit; color: inherit; }
     top: 0;
     left: 0;
     width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
     background:
       radial-gradient(120% 90% at 50% 0%, rgba(255, 85, 0, 0.09) 0%, transparent 62%),
       #0A0A0D;
@@ -2298,13 +2292,9 @@ button, input, textarea { font: inherit; color: inherit; }
   .brand-logo-img { max-height: 62px; max-width: 128px; }
   .logo-tsyp13, .logo-tec1, .logo-pyfac { max-height: 76px; max-width: 150px; }
 
-  .connect-social-grid { grid-template-columns: minmax(0, 1fr); }
-  .social-card { padding: 0.9rem 1rem; }
-}
-
 /* Small phones */
 @media screen and (max-width: 560px) {
-  .form-row { grid-template-columns: minmax(0, 1fr); }
+  .wa-form-row { grid-template-columns: minmax(0, 1fr); }
 
   .hero__socials {
     display: grid;

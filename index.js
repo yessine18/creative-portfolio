@@ -70,7 +70,8 @@ function initNavEvents() {
       const sectionHeight = current.offsetHeight;
       const sectionTop = current.offsetTop - 100;
       const sectionId = current.getAttribute('id');
-      const navLink = document.querySelector(`.nav__menu a[href*=${sectionId}]`);
+      if (!sectionId) return;
+      const navLink = document.querySelector(`.nav__menu a[href*="${sectionId}"]`);
       
       if (navLink) {
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -380,23 +381,19 @@ function initContactForm() {
     var encoded = encodeURIComponent(msg);
     var waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encoded;
 
+    // Open WhatsApp synchronously immediately to prevent browser popup blockers
+    window.open(waUrl, '_blank');
+
     var btn = document.getElementById('wa-submit-btn');
     if (btn) {
       var origHTML = btn.innerHTML;
-      btn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> <span>Opening WhatsApp...</span>';
-      btn.style.pointerEvents = 'none';
+      btn.innerHTML = '<i class="ri-checkbox-circle-fill"></i> <span>Message Sent to WhatsApp!</span>';
+      btn.style.background = 'linear-gradient(135deg, #00BFA5, #00E5FF)';
 
       setTimeout(function() {
-        window.open(waUrl, '_blank');
-        btn.innerHTML = '<i class="ri-checkbox-circle-fill"></i> <span>Message Ready!</span>';
-        btn.style.background = 'linear-gradient(135deg, #00BFA5, #00E5FF)';
-
-        setTimeout(function() {
-          btn.innerHTML = origHTML;
-          btn.style.background = '';
-          btn.style.pointerEvents = '';
-        }, 3000);
-      }, 800);
+        btn.innerHTML = origHTML;
+        btn.style.background = '';
+      }, 3000);
     }
   });
 }
@@ -617,10 +614,17 @@ function initLanguageToggle() {
   setLanguage(savedLang);
   
   if (langPill) {
-    langPill.addEventListener('click', () => {
+    const toggleFunc = () => {
       const currentLang = localStorage.getItem('lang') || 'en';
       const newLang = currentLang === 'en' ? 'fr' : 'en';
       setLanguage(newLang);
+    };
+    langPill.addEventListener('click', toggleFunc);
+    langPill.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleFunc();
+      }
     });
   }
 }

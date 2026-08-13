@@ -68,7 +68,7 @@
       <div class="nav__actions">
 
         <!-- Language Segmented Pill -->
-        <div class="lang-pill" id="lang-toggle" role="button" aria-label="Toggle language" title="Switch language">
+        <div class="lang-pill" id="lang-toggle" role="button" tabindex="0" aria-label="Toggle language" title="Switch language">
           <span class="lang-pill__option" data-lang="en">EN</span>
           <span class="lang-pill__option" data-lang="fr">FR</span>
           <div class="lang-pill__slider" id="lang-slider"></div>
@@ -875,7 +875,7 @@
         <!-- Expand / Collapse Button -->
         <div class="video-expand-wrap reveal">
           <button class="btn-video-expand" id="video-expand-btn">
-            <span id="expand-text">Show All 26 Video Productions</span> <i class="ri-arrow-down-s-line" id="expand-icon"></i>
+            <span id="expand-text">Show All 31 Video Productions</span> <i class="ri-arrow-down-s-line" id="expand-icon"></i>
           </button>
         </div>
 
@@ -1165,8 +1165,8 @@
               <i class="ri-whatsapp-line"></i>
               <span>Direct Message</span>
             </div>
-            <h2 class="connect-headline">Let's Build<br>Something <span class="text-gradient">Epic</span></h2>
-            <p class="connect-sub">Fill in the fields below and hit send — it'll open WhatsApp with a ready-made message directly to me. No emails, no waiting.</p>
+            <h2 class="connect-headline" data-i18n="connect_headline">Let's Build<br>Something <span class="text-gradient">Epic</span></h2>
+            <p class="connect-sub" data-i18n="connect_sub">Fill in the fields below and hit send — it'll open WhatsApp with a ready-made message directly to me. No emails, no waiting.</p>
           </div>
           
           <form class="wa-form" id="contact-form">
@@ -1174,7 +1174,7 @@
             <div class="wa-form-row">
               <div class="wa-field">
                 <label class="wa-label" for="wa-name"><i class="ri-user-3-line"></i> Your Name *</label>
-                <input type="text" id="wa-name" class="wa-input" placeholder="e.g. Ahmed Ben Ali" required>
+                <input type="text" id="wa-name" class="wa-input" placeholder="e.g. Ahmed Ben Ali" data-i18n-ph="form_name" required>
               </div>
               <div class="wa-field">
                 <label class="wa-label" for="wa-company"><i class="ri-building-2-line"></i> Company / Organization</label>
@@ -1214,7 +1214,7 @@
             <!-- Row 3: Brief -->
             <div class="wa-field">
               <label class="wa-label" for="wa-brief"><i class="ri-chat-3-line"></i> Project Brief *</label>
-              <textarea id="wa-brief" class="wa-input wa-textarea" placeholder="Describe your project, event, or campaign briefly..." required></textarea>
+              <textarea id="wa-brief" class="wa-input wa-textarea" placeholder="Describe your project, event, or campaign briefly..." data-i18n-ph="form_message" required></textarea>
             </div>
 
 
@@ -1232,12 +1232,12 @@
         <footer class="footer-copyright">
           <p data-i18n="footer_rights">© 2026 Yessine Fakhfakh. All Rights Reserved.</p>
           <div class="footer-social-links">
-            <a href="https://www.linkedin.com/in/yessine-fakhfakh-470145298/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
-            <a href="https://www.behance.net/yessinefakhfakh" target="_blank" rel="noopener" aria-label="Behance"><i class="ri-behance-fill"></i></a>
-            <a href="https://www.instagram.com/fakhfakhyessine1/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-            <a href="https://www.facebook.com/yessine.fakhfakh.9/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.linkedin.com/in/yessine-fakhfakh-470145298/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="https://www.behance.net/yessinefakhfakh" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="ri-behance-fill"></i></a>
+            <a href="https://www.instagram.com/fakhfakhyessine1/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="https://www.facebook.com/yessine.fakhfakh.9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="ri-facebook-circle-fill"></i></a>
           </div>
-          <a href="https://fakhfakhyessine.me/yessine-portfolio/" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn portfolio-link-btn--footer" data-i18n="hero_portfolio_cta">
+          <a href="https://fakhfakhyessine.me/yessine-portfolio/" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn portfolio-link-btn--footer">
             <span data-i18n="footer_portfolio">Professional Portfolio</span>
             <i class="ri-arrow-right-up-line"></i>
           </a>
