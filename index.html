@@ -1157,18 +1157,77 @@
       <div class="container">
         <div class="connect-inner reveal">
           <div class="connect-header">
-            <h2 class="connect-headline" data-i18n="connect_headline">Let's Build<br>Something <span class="text-gradient">Epic</span></h2>
-            <p class="connect-sub" data-i18n="connect_sub">Looking for an audio visual artist & media manager who speaks fluent tech and creative direction?</p>
+            <div class="wa-badge">
+              <i class="ri-whatsapp-line"></i>
+              <span>Direct Message</span>
+            </div>
+            <h2 class="connect-headline">Let's Build<br>Something <span class="text-gradient">Epic</span></h2>
+            <p class="connect-sub">Fill in the fields below and hit send — it'll open WhatsApp with a ready-made message directly to me. No emails, no waiting.</p>
           </div>
           
-          <form action="#" class="connect-form" id="contact-form">
-            <div class="form-row">
-              <input type="text" placeholder="Your Name or Agency" data-i18n-ph="form_name" required class="form-input">
-              <input type="email" placeholder="Your Email Address" data-i18n-ph="form_email" required class="form-input">
+          <form class="wa-form" id="contact-form">
+            <!-- Row 1: Name + Company -->
+            <div class="wa-form-row">
+              <div class="wa-field">
+                <label class="wa-label" for="wa-name"><i class="ri-user-3-line"></i> Your Name *</label>
+                <input type="text" id="wa-name" class="wa-input" placeholder="e.g. Ahmed Ben Ali" required>
+              </div>
+              <div class="wa-field">
+                <label class="wa-label" for="wa-company"><i class="ri-building-2-line"></i> Company / Organization</label>
+                <input type="text" id="wa-company" class="wa-input" placeholder="e.g. IEEE ENIS, Freelance">
+              </div>
             </div>
-            <textarea placeholder="Tell me about your project brief or campaign needs..." data-i18n-ph="form_message" required class="form-input form-textarea"></textarea>
-            <button type="submit" class="btn btn-gradient" id="submit-btn">
-              <i class="ri-mail-send-fill"></i> <span data-i18n="form_submit">Send Project Brief</span>
+
+            <!-- Row 2: Service + Budget -->
+            <div class="wa-form-row">
+              <div class="wa-field">
+                <label class="wa-label" for="wa-service"><i class="ri-film-line"></i> Service Needed *</label>
+                <select id="wa-service" class="wa-input wa-select" required>
+                  <option value="" disabled selected>Choose a service...</option>
+                  <option value="Video Editing & Aftermovie">🎬 Video Editing & Aftermovie</option>
+                  <option value="Motion Graphics & 3D Intro">✨ Motion Graphics & 3D Intro</option>
+                  <option value="Social Media Branding & Design">🎨 Social Media Branding & Design</option>
+                  <option value="Event Coverage & Production">📸 Event Coverage & Production</option>
+                  <option value="Logo Design & Brand Identity">🖌️ Logo Design & Brand Identity</option>
+                  <option value="Full Media Management">📊 Full Media Management</option>
+                  <option value="Other">💡 Other</option>
+                </select>
+              </div>
+              <div class="wa-field">
+                <label class="wa-label" for="wa-budget"><i class="ri-money-dollar-circle-line"></i> Budget Range</label>
+                <select id="wa-budget" class="wa-input wa-select">
+                  <option value="" disabled selected>Select budget...</option>
+                  <option value="Under 100 TND">Under 100 TND</option>
+                  <option value="100 - 300 TND">100 – 300 TND</option>
+                  <option value="300 - 600 TND">300 – 600 TND</option>
+                  <option value="600 - 1000 TND">600 – 1,000 TND</option>
+                  <option value="1000+ TND">1,000+ TND</option>
+                  <option value="Let's discuss">🤝 Let's discuss</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row 3: Brief -->
+            <div class="wa-field">
+              <label class="wa-label" for="wa-brief"><i class="ri-chat-3-line"></i> Project Brief *</label>
+              <textarea id="wa-brief" class="wa-input wa-textarea" placeholder="Describe your project, event, or campaign briefly..." required></textarea>
+            </div>
+
+            <!-- Message Preview -->
+            <div class="wa-preview" id="wa-preview">
+              <div class="wa-preview-header">
+                <i class="ri-eye-line"></i> Message Preview
+              </div>
+              <div class="wa-preview-bubble" id="wa-preview-bubble">
+                <p class="wa-preview-text">Your message preview will appear here as you fill the fields above...</p>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="wa-send-btn" id="wa-submit-btn">
+              <i class="ri-whatsapp-line"></i>
+              <span>Send via WhatsApp</span>
+              <i class="ri-arrow-right-up-line"></i>
             </button>
           </form>
         </div>

@@ -332,33 +332,89 @@ function initLightbox() {
 }
 
 // ----------------------------------------------------
-// CONTACT FORM MOCK SUBMIT
+// WHATSAPP CONTACT FORM
 // ----------------------------------------------------
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
-  
+
+  const WHATSAPP_NUMBER = '21656646677';
+
+  const nameInput = document.getElementById('wa-name');
+  const companyInput = document.getElementById('wa-company');
+  const serviceSelect = document.getElementById('wa-service');
+  const budgetSelect = document.getElementById('wa-budget');
+  const briefInput = document.getElementById('wa-brief');
+  const previewBubble = document.getElementById('wa-preview-bubble');
+
+  function buildMessage() {
+    const name = nameInput ? nameInput.value.trim() : '';
+    const company = companyInput ? companyInput.value.trim() : '';
+    const service = serviceSelect ? serviceSelect.value : '';
+    const budget = budgetSelect ? budgetSelect.value : '';
+    const brief = briefInput ? briefInput.value.trim() : '';
+
+    let msg = `👋 Hello Yessine!\n\n`;
+    msg += `My name is *${name || '___'}*`;
+    if (company) msg += ` from *${company}*`;
+    msg += `.\n\n`;
+    msg += `🎯 *Service needed:* ${service || '___'}\n`;
+    if (budget) msg += `💰 *Budget range:* ${budget}\n`;
+    msg += `\n📋 *Project brief:*\n${brief || '___'}\n\n`;
+    msg += `Looking forward to hearing from you! 🚀`;
+
+    return msg;
+  }
+
+  function updatePreview() {
+    if (!previewBubble) return;
+    const msg = buildMessage();
+    // Convert markdown-style bold to HTML
+    const html = msg
+      .replace(/\*(.*?)\*/g, '<span class="wa-highlight">$1</span>')
+      .replace(/\n/g, '<br>');
+    previewBubble.innerHTML = `<p class="wa-preview-text">${html}</p>`;
+  }
+
+  // Live preview updates
+  [nameInput, companyInput, briefInput].forEach(el => {
+    if (el) el.addEventListener('input', updatePreview);
+  });
+  [serviceSelect, budgetSelect].forEach(el => {
+    if (el) el.addEventListener('change', updatePreview);
+  });
+
+  // Submit → open WhatsApp
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
+
+    const msg = buildMessage();
+    const encoded = encodeURIComponent(msg);
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+
+    // Button animation
+    const btn = document.getElementById('wa-submit-btn');
     if (btn) {
-      const origText = btn.innerHTML;
-      btn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> Sending Brief...';
-      btn.disabled = true;
-      
+      const origHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> <span>Opening WhatsApp...</span>';
+      btn.style.pointerEvents = 'none';
+
       setTimeout(() => {
-        btn.innerHTML = '<i class="ri-checkbox-circle-fill"></i> Brief Received!';
-        btn.style.background = 'linear-gradient(135deg, #00BFA5 0%, #00E5FF 100%)';
-        form.reset();
-        
+        window.open(waUrl, '_blank');
+        btn.innerHTML = '<i class="ri-checkbox-circle-fill"></i> <span>Message Ready!</span>';
+        btn.style.background = 'linear-gradient(135deg, #00BFA5, #00E5FF)';
+
         setTimeout(() => {
-          btn.innerHTML = origText;
+          btn.innerHTML = origHTML;
           btn.style.background = '';
-          btn.disabled = false;
+          btn.style.pointerEvents = '';
         }, 3000);
-      }, 1200);
+      }, 800);
     }
   });
+
+  // Initial preview
+  updatePreview();
 }
 
 // ----------------------------------------------------
