@@ -1790,61 +1790,6 @@ button, input, textarea { font: inherit; color: inherit; }
   line-height: 1.65;
 }
 
-/* Live Message Preview */
-.wa-preview {
-  background: rgba(37, 211, 102, 0.04);
-  border: 1px solid rgba(37, 211, 102, 0.15);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  transition: opacity 0.3s ease;
-}
-
-.wa-preview-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1rem;
-  background: rgba(37, 211, 102, 0.08);
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #25D366;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.wa-preview-header i {
-  font-size: 0.95rem;
-}
-
-.wa-preview-bubble {
-  padding: 1rem 1.15rem;
-  position: relative;
-}
-
-.wa-preview-bubble::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 1rem;
-  width: 10px;
-  height: 10px;
-  background: rgba(37, 211, 102, 0.04);
-}
-
-.wa-preview-text {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.wa-preview-text .wa-highlight {
-  color: #25D366;
-  font-weight: 600;
-}
 
 /* WhatsApp Send Button */
 .wa-send-btn {

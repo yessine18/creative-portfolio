@@ -345,7 +345,6 @@ function initContactForm() {
   const serviceSelect = document.getElementById('wa-service');
   const budgetSelect = document.getElementById('wa-budget');
   const briefInput = document.getElementById('wa-brief');
-  const previewBubble = document.getElementById('wa-preview-bubble');
 
   function buildMessage() {
     const name = nameInput ? nameInput.value.trim() : '';
@@ -354,57 +353,44 @@ function initContactForm() {
     const budget = budgetSelect ? budgetSelect.value : '';
     const brief = briefInput ? briefInput.value.trim() : '';
 
-    let msg = `👋 Hello Yessine!\n\n`;
-    msg += `My name is *${name || '___'}*`;
-    if (company) msg += ` from *${company}*`;
-    msg += `.\n\n`;
-    msg += `🎯 *Service needed:* ${service || '___'}\n`;
-    if (budget) msg += `💰 *Budget range:* ${budget}\n`;
-    msg += `\n📋 *Project brief:*\n${brief || '___'}\n\n`;
-    msg += `Looking forward to hearing from you! 🚀`;
+    let lines = [];
+    lines.push('Hello Yessine!');
+    lines.push('');
+    let intro = 'My name is *' + (name || '___') + '*';
+    if (company) intro += ' from *' + company + '*';
+    intro += '.';
+    lines.push(intro);
+    lines.push('');
+    lines.push('Service needed: *' + (service || '___') + '*');
+    if (budget) lines.push('Budget range: *' + budget + '*');
+    lines.push('');
+    lines.push('Project brief:');
+    lines.push(brief || '___');
+    lines.push('');
+    lines.push('Looking forward to hearing from you!');
 
-    return msg;
+    return lines.join('\n');
   }
 
-  function updatePreview() {
-    if (!previewBubble) return;
-    const msg = buildMessage();
-    // Convert markdown-style bold to HTML
-    const html = msg
-      .replace(/\*(.*?)\*/g, '<span class="wa-highlight">$1</span>')
-      .replace(/\n/g, '<br>');
-    previewBubble.innerHTML = `<p class="wa-preview-text">${html}</p>`;
-  }
-
-  // Live preview updates
-  [nameInput, companyInput, briefInput].forEach(el => {
-    if (el) el.addEventListener('input', updatePreview);
-  });
-  [serviceSelect, budgetSelect].forEach(el => {
-    if (el) el.addEventListener('change', updatePreview);
-  });
-
-  // Submit → open WhatsApp
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const msg = buildMessage();
-    const encoded = encodeURIComponent(msg);
-    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+    var msg = buildMessage();
+    var encoded = encodeURIComponent(msg);
+    var waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encoded;
 
-    // Button animation
-    const btn = document.getElementById('wa-submit-btn');
+    var btn = document.getElementById('wa-submit-btn');
     if (btn) {
-      const origHTML = btn.innerHTML;
+      var origHTML = btn.innerHTML;
       btn.innerHTML = '<i class="ri-loader-4-line ri-spin"></i> <span>Opening WhatsApp...</span>';
       btn.style.pointerEvents = 'none';
 
-      setTimeout(() => {
+      setTimeout(function() {
         window.open(waUrl, '_blank');
         btn.innerHTML = '<i class="ri-checkbox-circle-fill"></i> <span>Message Ready!</span>';
         btn.style.background = 'linear-gradient(135deg, #00BFA5, #00E5FF)';
 
-        setTimeout(() => {
+        setTimeout(function() {
           btn.innerHTML = origHTML;
           btn.style.background = '';
           btn.style.pointerEvents = '';
@@ -412,9 +398,6 @@ function initContactForm() {
       }, 800);
     }
   });
-
-  // Initial preview
-  updatePreview();
 }
 
 // ----------------------------------------------------
