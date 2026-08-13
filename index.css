@@ -23,6 +23,82 @@
   font-display: swap;
 }
 
+/*==================== CUSTOM CURSOR ====================*/
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #FF5500;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(255, 85, 0, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.3s ease,
+              background 0.3s ease,
+              opacity 0.3s ease;
+  will-change: transform;
+}
+
+/* Hover state — grow ring + shrink dot */
+.cursor-dot.is-hovering {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+}
+
+.cursor-ring.is-hovering {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 85, 0, 0.08);
+}
+
+/* Click state */
+.cursor-dot.is-clicking {
+  width: 5px;
+  height: 5px;
+}
+
+.cursor-ring.is-clicking {
+  width: 32px;
+  height: 32px;
+  border-color: rgba(255, 85, 0, 0.7);
+}
+
+/* Hide on touch / small screens */
+@media (hover: none), (max-width: 768px) {
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+  *, *::before, *::after {
+    cursor: auto !important;
+  }
+}
+
 /*==================== DESIGN SYSTEM ====================*/
 :root {
   /* Surfaces — a tight four-step ladder instead of ad-hoc rgba values */

@@ -14,6 +14,7 @@ function initApp() {
   initBrandingLogosMarquee();
   initLightbox();
   initContactForm();
+  initCustomCursor();
 }
 
 // initApp is called at the bottom of the file after all declarations
@@ -622,6 +623,85 @@ function initLanguageToggle() {
       setLanguage(newLang);
     });
   }
+}
+
+// ----------------------------------------------------
+// CUSTOM CURSOR
+// ----------------------------------------------------
+function initCustomCursor() {
+  // Skip on touch devices
+  if (!window.matchMedia('(hover: hover)').matches) return;
+
+  var dot = document.getElementById('cursor-dot');
+  var ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+
+  var mouseX = -100, mouseY = -100;
+  var ringX = -100, ringY = -100;
+  var isVisible = false;
+
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!isVisible) {
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+      isVisible = true;
+    }
+  });
+
+  document.addEventListener('mouseleave', function() {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+    isVisible = false;
+  });
+
+  document.addEventListener('mouseenter', function() {
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
+    isVisible = true;
+  });
+
+  // Click feedback
+  document.addEventListener('mousedown', function() {
+    dot.classList.add('is-clicking');
+    ring.classList.add('is-clicking');
+  });
+  document.addEventListener('mouseup', function() {
+    dot.classList.remove('is-clicking');
+    ring.classList.remove('is-clicking');
+  });
+
+  // Hover detection on interactive elements
+  var hoverTargets = 'a, button, input, textarea, select, .poster-card, .video-filter-btn, .social-card, .nav__link, .dot, [role="button"]';
+
+  document.addEventListener('mouseover', function(e) {
+    if (e.target.closest(hoverTargets)) {
+      dot.classList.add('is-hovering');
+      ring.classList.add('is-hovering');
+    }
+  });
+  document.addEventListener('mouseout', function(e) {
+    if (e.target.closest(hoverTargets)) {
+      dot.classList.remove('is-hovering');
+      ring.classList.remove('is-hovering');
+    }
+  });
+
+  // Animation loop — dot snaps instantly, ring trails smoothly
+  function animate() {
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+
+    // Lerp the ring position for a trailing effect
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+
+    requestAnimationFrame(animate);
+  }
+  animate();
 }
 
 // ----------------------------------------------------
