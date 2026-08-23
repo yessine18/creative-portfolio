@@ -491,6 +491,10 @@ function initCustomVideoPlayer() {
 
   playerFrame.addEventListener('click', (e) => {
     if (e.target.closest('#premiere-controls') || e.target.closest('#premiere-play-pill')) return;
+    if (!video.paused && playerFrame.classList.contains('hide-controls')) {
+      scheduleControlsHide();
+      return;
+    }
     togglePlay();
   });
 
