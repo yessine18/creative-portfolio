@@ -444,112 +444,98 @@
     <!--==================== LATEST WORK SHOWCASE ====================-->
     <section class="section latest-work-section" id="latest-work">
       <div class="container">
+        
         <div class="section-title-wrap reveal">
-          <div class="latest-work-badge">
-            <span class="pulse-indicator"></span>
-            <span data-i18n="latest_work_badge">FEATURED PRODUCTION</span>
+          <div class="stat-counter-badge">
+            <span class="live-status-dot"></span>
+            <span data-i18n="latest_work_badge">LATEST RELEASE • 2026</span>
           </div>
           <h2 class="section-title" data-i18n="latest_work_title">LATEST WORK</h2>
-          <p class="section-subtitle" data-i18n="latest_work_subtitle">TecWeek 3.0 Official Launch Teaser — An exclusive cinematic showcase in 4K motion graphics & sound design</p>
+          <p class="section-subtitle" data-i18n="latest_work_subtitle">Official Launch Campaign Teaser & 3D Motion Graphics Identity for TecWeek 3.0</p>
         </div>
 
-        <!-- Cinema Video Showcase Container -->
-        <div class="cinema-showcase-container reveal">
-          <div class="cinema-ambient-glow"></div>
+        <!-- Master Premiere Spotlight Card -->
+        <div class="premiere-card reveal" id="premiere-showcase">
+          <div class="premiere-card__glow"></div>
           
-          <div class="cinema-frame" id="custom-cinema-player">
-            <!-- Top Studio Display Control Bar -->
-            <div class="cinema-frame__header">
-              <div class="cinema-frame__controls">
-                <span class="ctrl-dot ctrl--red"></span>
-                <span class="ctrl-dot ctrl--amber"></span>
-                <span class="ctrl-dot ctrl--green"></span>
-              </div>
-              <div class="cinema-frame__title">
-                <i class="ri-film-fill"></i>
-                <span>TecWeek 3.0 — Official Teaser.mp4</span>
-              </div>
-              <div class="cinema-frame__badge">
-                <span class="hd-pulse"></span>
-                <span>1080P • 60 FPS</span>
-              </div>
+          <!-- Top Info Header -->
+          <div class="premiere-header">
+            <div class="premiere-header__left">
+              <span class="crown-badge orange-badge"><i class="ri-fire-fill"></i> FEATURED PREMIERE</span>
+              <span class="v-brand-pill">TecWeek 3.0</span>
             </div>
-
-            <!-- Responsive Video Canvas with Custom HTML5 Player -->
-            <div class="cinema-frame__screen" id="cinema-screen">
-              <video 
-                id="latest-work-video" 
-                class="cinema-video" 
-                poster="./tecweek 3.0/poster.jpg" 
-                preload="metadata" 
-                playsinline 
-                webkit-playsinline>
-                <source src="./tecweek 3.0/tecweek 3.0.mp4" type="video/mp4">
-                Your browser does not support HTML5 video playback.
-              </video>
-
-              <!-- Central Big Play Button Overlay -->
-              <button class="cinema-big-play" id="cinema-big-play" aria-label="Play Video">
-                <div class="play-icon-glow"></div>
-                <i class="ri-play-fill"></i>
-              </button>
-
-              <!-- Custom Video Controls Overlay -->
-              <div class="cinema-controls" id="cinema-controls">
-                <!-- Timeline Scrubber -->
-                <div class="cinema-progress-wrap" id="cinema-progress-wrap">
-                  <div class="cinema-progress-bar" id="cinema-progress-bar"></div>
-                  <div class="cinema-progress-handle" id="cinema-progress-handle"></div>
-                </div>
-
-                <div class="cinema-controls-bar">
-                  <div class="cinema-controls-left">
-                    <!-- Play/Pause Toggle -->
-                    <button class="cinema-btn" id="cinema-play-btn" aria-label="Play / Pause">
-                      <i class="ri-play-fill" id="cinema-play-icon"></i>
-                    </button>
-
-                    <!-- Volume / Mute Toggle -->
-                    <div class="cinema-vol-wrap">
-                      <button class="cinema-btn" id="cinema-vol-btn" aria-label="Mute / Unmute">
-                        <i class="ri-volume-up-fill" id="cinema-vol-icon"></i>
-                      </button>
-                      <input type="range" class="cinema-vol-slider" id="cinema-vol-slider" min="0" max="1" step="0.05" value="1" aria-label="Volume">
-                    </div>
-
-                    <!-- Time Display -->
-                    <div class="cinema-time" id="cinema-time">
-                      <span id="cinema-current-time">0:00</span>
-                      <span class="time-sep">/</span>
-                      <span id="cinema-duration">1:24</span>
-                    </div>
-                  </div>
-
-                  <div class="cinema-controls-right">
-                    <!-- Fullscreen Toggle -->
-                    <button class="cinema-btn" id="cinema-fullscreen-btn" aria-label="Toggle Fullscreen" title="Fullscreen">
-                      <i class="ri-fullscreen-line" id="cinema-fs-icon"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <div class="premiere-header__right">
+              <span class="premiere-meta-chip"><i class="ri-time-line"></i> 01:24</span>
+              <span class="premiere-meta-chip"><i class="ri-hd-line"></i> 1080P 60FPS</span>
             </div>
+          </div>
 
-            <!-- Bottom Studio Metadata Bar -->
-            <div class="cinema-frame__footer">
-              <div class="cinema-frame__tags">
-                <span class="c-tag"><i class="ri-movie-2-line text-orange"></i> TecWeek 3.0</span>
-                <span class="c-tag"><i class="ri-sparkling-fill text-orange"></i> Official Teaser</span>
-                <span class="c-tag"><i class="ri-music-2-line"></i> Original Sound Mix</span>
+          <!-- Cinema Screen Box (Pure, Seamless, Fluid) -->
+          <div class="premiere-player" id="premiere-player">
+            <video 
+              id="premiere-video" 
+              class="premiere-video-el" 
+              poster="./tecweek 3.0/poster.jpg" 
+              preload="metadata" 
+              playsinline 
+              webkit-playsinline>
+              <source src="./tecweek 3.0/tecweek 3.0.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+
+            <!-- Gradient Vignette -->
+            <div class="premiere-vignette"></div>
+
+            <!-- Floating Hero Play Pill -->
+            <button class="premiere-play-pill" id="premiere-play-pill" aria-label="Play Video">
+              <span class="play-pill-icon"><i class="ri-play-fill" id="premiere-pill-icon"></i></span>
+              <span class="play-pill-text" id="premiere-pill-text">Watch Teaser</span>
+            </button>
+
+            <!-- Minimalist Sleek Glass Control Strip -->
+            <div class="premiere-controls" id="premiere-controls">
+              <div class="premiere-timeline" id="premiere-timeline">
+                <div class="premiere-timeline__fill" id="premiere-timeline-fill"></div>
               </div>
-              <div class="cinema-frame__actions">
-                <a href="./tecweek 3.0/tecweek 3.0.mp4" download="TecWeek-3.0-Teaser.mp4" class="btn-cinema-launch">
-                  <i class="ri-download-2-line"></i>
-                  <span>Download Video</span>
-                </a>
+              <div class="premiere-controls__bar">
+                <div class="premiere-controls__left">
+                  <button class="p-ctrl-btn" id="premiere-play-btn" aria-label="Play / Pause">
+                    <i class="ri-play-fill" id="p-play-icon"></i>
+                  </button>
+                  <button class="p-ctrl-btn" id="premiere-mute-btn" aria-label="Mute / Unmute">
+                    <i class="ri-volume-up-fill" id="p-mute-icon"></i>
+                  </button>
+                  <span class="p-time-display"><span id="p-curr-time">0:00</span> / <span id="p-dur-time">1:24</span></span>
+                </div>
+                <div class="premiere-controls__right">
+                  <button class="p-ctrl-btn" id="premiere-fs-btn" aria-label="Fullscreen">
+                    <i class="ri-fullscreen-line" id="p-fs-icon"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- Bottom Card Content: Title, Description & Tags -->
+          <div class="premiere-body">
+            <div class="premiere-body__info">
+              <h3 class="premiere-title">TecWeek 3.0 — Official Launch Teaser</h3>
+              <p class="premiere-desc">Complete audio-visual production, 3D animated identity reveal, sound design, and promotional campaign created for the 3rd edition of the Tunisian Engineering Congress Week.</p>
+              <div class="sw-dash__chips">
+                <span>3D Motion Graphics</span>
+                <span>Sound Design</span>
+                <span>Video Editing</span>
+                <span>Event Branding</span>
+                <span>Cinema 4D & AE</span>
+              </div>
+            </div>
+            <div class="premiere-body__actions">
+              <a href="./tecweek 3.0/tecweek 3.0.mp4" download="TecWeek-3.0-Teaser.mp4" class="btn-video-launch orange-launch">
+                <i class="ri-download-2-fill"></i> <span>Download Reel</span>
+              </a>
+            </div>
+          </div>
+
         </div>
 
       </div>

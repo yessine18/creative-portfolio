@@ -417,25 +417,24 @@ function initBrandingLogosMarquee() {
 }
 
 // ----------------------------------------------------
-// CUSTOM CINEMA VIDEO PLAYER (LATEST WORK)
+// PREMIERE FEATURED VIDEO SHOWCASE (LATEST WORK)
 // ----------------------------------------------------
 function initCustomVideoPlayer() {
-  const playerFrame = document.getElementById('custom-cinema-player');
-  const video = document.getElementById('latest-work-video');
-  const screen = document.getElementById('cinema-screen');
-  const bigPlayBtn = document.getElementById('cinema-big-play');
-  const playBtn = document.getElementById('cinema-play-btn');
-  const playIcon = document.getElementById('cinema-play-icon');
-  const progressWrap = document.getElementById('cinema-progress-wrap');
-  const progressBar = document.getElementById('cinema-progress-bar');
-  const progressHandle = document.getElementById('cinema-progress-handle');
-  const volBtn = document.getElementById('cinema-vol-btn');
-  const volIcon = document.getElementById('cinema-vol-icon');
-  const volSlider = document.getElementById('cinema-vol-slider');
-  const currentTimeEl = document.getElementById('cinema-current-time');
-  const durationEl = document.getElementById('cinema-duration');
-  const fsBtn = document.getElementById('cinema-fullscreen-btn');
-  const fsIcon = document.getElementById('cinema-fs-icon');
+  const playerFrame = document.getElementById('premiere-player');
+  const video = document.getElementById('premiere-video');
+  const playPill = document.getElementById('premiere-play-pill');
+  const pillIcon = document.getElementById('premiere-pill-icon');
+  const pillText = document.getElementById('premiere-pill-text');
+  const playBtn = document.getElementById('premiere-play-btn');
+  const playIcon = document.getElementById('p-play-icon');
+  const muteBtn = document.getElementById('premiere-mute-btn');
+  const muteIcon = document.getElementById('p-mute-icon');
+  const timeline = document.getElementById('premiere-timeline');
+  const timelineFill = document.getElementById('premiere-timeline-fill');
+  const currTimeEl = document.getElementById('p-curr-time');
+  const durTimeEl = document.getElementById('p-dur-time');
+  const fsBtn = document.getElementById('premiere-fs-btn');
+  const fsIcon = document.getElementById('p-fs-icon');
 
   if (!video || !playerFrame) return;
 
@@ -471,11 +470,13 @@ function initCustomVideoPlayer() {
     playerFrame.classList.remove('is-playing');
     playerFrame.classList.remove('hide-controls');
     if (playIcon) playIcon.className = 'ri-replay-line';
+    if (pillIcon) pillIcon.className = 'ri-replay-line';
+    if (pillText) pillText.textContent = 'Replay Teaser';
     clearTimeout(hideControlsTimeout);
   });
 
-  if (bigPlayBtn) {
-    bigPlayBtn.addEventListener('click', (e) => {
+  if (playPill) {
+    playPill.addEventListener('click', (e) => {
       e.stopPropagation();
       togglePlay();
     });
@@ -488,49 +489,44 @@ function initCustomVideoPlayer() {
     });
   }
 
-  if (screen) {
-    screen.addEventListener('click', (e) => {
-      if (e.target.closest('#cinema-controls') || e.target.closest('#cinema-big-play')) return;
-      togglePlay();
-    });
-  }
+  playerFrame.addEventListener('click', (e) => {
+    if (e.target.closest('#premiere-controls') || e.target.closest('#premiere-play-pill')) return;
+    togglePlay();
+  });
 
-  // Update Progress
+  // Timeline & Time update
+  let isScrubbing = false;
+
   video.addEventListener('timeupdate', () => {
     if (!isScrubbing && video.duration) {
       const pct = (video.currentTime / video.duration) * 100;
-      if (progressBar) progressBar.style.width = `${pct}%`;
-      if (progressHandle) progressHandle.style.left = `${pct}%`;
-      if (currentTimeEl) currentTimeEl.textContent = formatTime(video.currentTime);
+      if (timelineFill) timelineFill.style.width = `${pct}%`;
+      if (currTimeEl) currTimeEl.textContent = formatTime(video.currentTime);
     }
   });
 
   video.addEventListener('loadedmetadata', () => {
-    if (durationEl && video.duration) {
-      durationEl.textContent = formatTime(video.duration);
+    if (durTimeEl && video.duration) {
+      durTimeEl.textContent = formatTime(video.duration);
     }
   });
 
-  if (video.duration && durationEl) {
-    durationEl.textContent = formatTime(video.duration);
+  if (video.duration && durTimeEl) {
+    durTimeEl.textContent = formatTime(video.duration);
   }
-
-  // Scrubbing
-  let isScrubbing = false;
 
   function scrub(e) {
-    if (!progressWrap || !video.duration) return;
-    const rect = progressWrap.getBoundingClientRect();
+    if (!timeline || !video.duration) return;
+    const rect = timeline.getBoundingClientRect();
     const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
     const pos = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    if (progressBar) progressBar.style.width = `${pos * 100}%`;
-    if (progressHandle) progressHandle.style.left = `${pos * 100}%`;
+    if (timelineFill) timelineFill.style.width = `${pos * 100}%`;
     video.currentTime = pos * video.duration;
-    if (currentTimeEl) currentTimeEl.textContent = formatTime(video.currentTime);
+    if (currTimeEl) currTimeEl.textContent = formatTime(video.currentTime);
   }
 
-  if (progressWrap) {
-    progressWrap.addEventListener('mousedown', (e) => {
+  if (timeline) {
+    timeline.addEventListener('mousedown', (e) => {
       isScrubbing = true;
       scrub(e);
       const onMouseMove = (moveEvent) => {
@@ -545,50 +541,29 @@ function initCustomVideoPlayer() {
       document.addEventListener('mouseup', onMouseUp);
     });
 
-    progressWrap.addEventListener('touchstart', (e) => {
+    timeline.addEventListener('touchstart', (e) => {
       isScrubbing = true;
       scrub(e);
     }, { passive: true });
 
-    progressWrap.addEventListener('touchmove', (e) => {
+    timeline.addEventListener('touchmove', (e) => {
       if (isScrubbing) scrub(e);
     }, { passive: true });
 
-    progressWrap.addEventListener('touchend', () => {
+    timeline.addEventListener('touchend', () => {
       isScrubbing = false;
     });
   }
 
-  // Volume
-  if (volSlider) {
-    volSlider.addEventListener('input', (e) => {
-      const val = parseFloat(e.target.value);
-      video.volume = val;
-      video.muted = (val === 0);
-      updateVolIcon();
-    });
-  }
-
-  if (volBtn) {
-    volBtn.addEventListener('click', (e) => {
+  // Mute / Unmute
+  if (muteBtn) {
+    muteBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       video.muted = !video.muted;
-      if (volSlider) {
-        volSlider.value = video.muted ? 0 : (video.volume || 1);
+      if (muteIcon) {
+        muteIcon.className = video.muted ? 'ri-volume-mute-fill' : 'ri-volume-up-fill';
       }
-      updateVolIcon();
     });
-  }
-
-  function updateVolIcon() {
-    if (!volIcon) return;
-    if (video.muted || video.volume === 0) {
-      volIcon.className = 'ri-volume-mute-fill';
-    } else if (video.volume < 0.5) {
-      volIcon.className = 'ri-volume-down-fill';
-    } else {
-      volIcon.className = 'ri-volume-up-fill';
-    }
   }
 
   // Fullscreen
@@ -625,7 +600,7 @@ function initCustomVideoPlayer() {
     }
   });
 
-  // Auto-hide controls during playback
+  // Auto-hide controls
   let hideControlsTimeout = null;
   function scheduleControlsHide() {
     clearTimeout(hideControlsTimeout);
@@ -637,10 +612,8 @@ function initCustomVideoPlayer() {
     }
   }
 
-  if (screen) {
-    screen.addEventListener('mousemove', scheduleControlsHide);
-    screen.addEventListener('touchstart', scheduleControlsHide, { passive: true });
-  }
+  playerFrame.addEventListener('mousemove', scheduleControlsHide);
+  playerFrame.addEventListener('touchstart', scheduleControlsHide, { passive: true });
 }
 
 // ----------------------------------------------------
@@ -741,10 +714,9 @@ const translations = {
     sw_cat2: "Video & Audio Production",
     journey_title: "CREATIVE JOURNEY",
     journey_subtitle: "Leadership, awards, and media manager roles across national events",
-    latest_work_badge: "FEATURED PRODUCTION",
+    latest_work_badge: "LATEST RELEASE • 2026",
     latest_work_title: "LATEST WORK",
-    latest_work_subtitle: "An exclusive preview of my latest audio-visual production, 3D motion graphics, and live event demonstration",
-    latest_work_open_drive: "Open in Drive",
+    latest_work_subtitle: "Official Launch Campaign Teaser & 3D Motion Graphics Identity for TecWeek 3.0",
     video_badge: "40+ PRODUCTIONS IN 2.5 YEARS",
     video_title: "VIDEO PRODUCTIONS",
     video_subtitle: "Aftermovies, 3D intro reveals, congress teasers & 17m giant screen main stage productions",
@@ -783,10 +755,9 @@ const translations = {
     sw_cat2: "Production Vidéo & Audio",
     journey_title: "PARCOURS CRÉATIF",
     journey_subtitle: "Leadership, prix et rôles de responsable média lors d'événements nationaux",
-    latest_work_badge: "PRODUCTION RÉCENTE",
-    latest_work_title: "DERNIÈRE RÉALISATION",
-    latest_work_subtitle: "Un aperçu exclusif de ma plus récente réalisation audiovisuelle, motion design 3D et démonstration en direct",
-    latest_work_open_drive: "Ouvrir dans Drive",
+    latest_work_badge: "DERNIÈRE SORTIE • 2026",
+    latest_work_title: "LATEST WORK",
+    latest_work_subtitle: "Teaser officiel de lancement et identité motion design 3D pour TecWeek 3.0",
     video_badge: "40+ PRODUCTIONS EN 2.5 ANS",
     video_title: "PRODUCTIONS VIDÉO",
     video_subtitle: "Aftermovies, révélations 3D, teasers de congrès et productions pour écran géant de 17m",
@@ -915,7 +886,7 @@ function initCustomCursor() {
   });
 
   // Hover detection on interactive elements
-  var hoverTargets = 'a, button, input, textarea, select, .poster-card, .video-filter-btn, .social-card, .cinema-frame, .ctrl-dot, .btn-cinema-launch, .nav__link, .dot, [role="button"]';
+  var hoverTargets = 'a, button, input, textarea, select, .poster-card, .video-filter-btn, .social-card, .premiere-card, .premiere-play-pill, .p-ctrl-btn, .btn-video-launch, .nav__link, .dot, [role="button"]';
 
   document.addEventListener('mouseover', function(e) {
     if (e.target.closest(hoverTargets)) {
