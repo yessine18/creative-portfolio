@@ -1565,6 +1565,7 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 
 .v-btn--all { --card-hue: #FF7A2F; }
+.v-btn--tec3 { --card-hue: #C69256; }
 .v-btn--tsyp13 { --card-hue: #00C9BE; }
 .v-btn--pyfac { --card-hue: #FF5500; }
 .v-btn--tec2 { --card-hue: #B77CFC; }
@@ -1833,6 +1834,7 @@ button, input, textarea { font: inherit; color: inherit; }
 .cat-gold { background: rgba(212, 175, 55, 0.16); color: #E8C65A; }
 .cat-sdg { background: rgba(0, 191, 165, 0.14); color: #4DD9C6; }
 .cat-palestine { background: rgba(34, 197, 94, 0.13); color: #6EE7A0; }
+.cat-goldenbrown { background: rgba(198, 146, 86, 0.16); color: #E5B37B; border: 1px solid rgba(198, 146, 86, 0.35); }
 
 .v-brand-pill {
   font-family: var(--font-display);
