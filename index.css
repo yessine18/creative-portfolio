@@ -1155,21 +1155,235 @@ button, input, textarea { font: inherit; color: inherit; }
   background: var(--accent-orange);
 }
 
+/*==================== CUSTOM CINEMA VIDEO PLAYER ====================*/
 .cinema-frame__screen {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000000;
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
 
-.cinema-frame__screen iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.cinema-video {
   width: 100%;
   height: 100%;
-  border: 0;
+  object-fit: cover;
+  display: block;
+  background: #000000;
+}
+
+/* Big Play Button Overlay */
+.cinema-big-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(12, 12, 16, 0.85);
+  border: 2px solid rgba(255, 85, 0, 0.85);
+  color: #FFFFFF;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 35px rgba(255, 85, 0, 0.4), inset 0 0 15px rgba(255, 85, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, border-color 0.3s ease, opacity 0.35s ease;
+}
+
+.play-icon-glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 85, 0, 0.5) 0%, transparent 70%);
+  animation: playPulse 2.4s infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes playPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.cinema-big-play:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--accent-orange);
+  color: #08080B;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 45px rgba(255, 85, 0, 0.7);
+}
+
+.cinema-frame.is-playing .cinema-big-play {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+/* Bottom Controls Overlay */
+.cinema-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.4rem 0.9rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 8, 0.82) 40%, rgba(5, 5, 8, 0.96) 100%);
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cinema-frame.is-playing.hide-controls .cinema-controls {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+/* Timeline Scrubber */
+.cinema-progress-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  transition: height 0.18s ease;
+}
+
+.cinema-progress-wrap:hover {
+  height: 8px;
+}
+
+.cinema-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #FF5500, #FF9900);
+  border-radius: 999px;
+  position: relative;
+  box-shadow: 0 0 12px rgba(255, 85, 0, 0.6);
+  pointer-events: none;
+}
+
+.cinema-progress-handle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #FF5500;
+  transform: translate(-50%, -50%) scale(0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease;
+  pointer-events: none;
+}
+
+.cinema-progress-wrap:hover .cinema-progress-handle {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Controls Bar */
+.cinema-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.cinema-controls-left,
+.cinema-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.cinema-btn {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+}
+
+.cinema-btn:hover {
+  color: var(--accent-orange);
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.08);
+}
+
+/* Volume Slider */
+.cinema-vol-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cinema-vol-slider {
+  width: 70px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.cinema-vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(255, 85, 0, 0.6);
+}
+
+.cinema-vol-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  cursor: pointer;
+  border: none;
+}
+
+/* Time Display */
+.cinema-time {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.time-sep {
+  color: var(--text-muted);
+  opacity: 0.6;
 }
 
 .cinema-frame__footer {
@@ -1229,17 +1443,47 @@ button, input, textarea { font: inherit; color: inherit; }
   filter: brightness(1.08);
 }
 
-@media screen and (max-width: 680px) {
+/* Mobile & Tablet Optimizations */
+@media screen and (max-width: 768px) {
+  .cinema-frame {
+    border-radius: var(--r-lg);
+  }
+  .cinema-big-play {
+    width: 62px;
+    height: 62px;
+    font-size: 1.7rem;
+  }
+  .cinema-vol-slider {
+    width: 50px;
+  }
+  .cinema-controls {
+    padding: 1.2rem 1rem 0.7rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
   .cinema-frame__header {
-    padding: 0.75rem 1rem;
+    padding: 0.65rem 0.9rem;
   }
   .cinema-frame__title {
     display: none;
   }
+  .cinema-vol-slider {
+    display: none;
+  }
+  .cinema-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.15rem;
+  }
+  .cinema-time {
+    font-size: 0.72rem;
+  }
   .cinema-frame__footer {
     flex-direction: column;
     align-items: stretch;
-    padding: 0.9rem 1rem;
+    padding: 0.85rem 1rem;
+    gap: 0.75rem;
   }
   .cinema-frame__tags {
     justify-content: center;

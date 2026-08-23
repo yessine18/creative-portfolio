@@ -450,14 +450,14 @@
             <span data-i18n="latest_work_badge">FEATURED PRODUCTION</span>
           </div>
           <h2 class="section-title" data-i18n="latest_work_title">LATEST WORK</h2>
-          <p class="section-subtitle" data-i18n="latest_work_subtitle">An exclusive preview of my latest audio-visual production, 3D motion graphics, and live event demonstration</p>
+          <p class="section-subtitle" data-i18n="latest_work_subtitle">TecWeek 3.0 Official Launch Teaser — An exclusive cinematic showcase in 4K motion graphics & sound design</p>
         </div>
 
         <!-- Cinema Video Showcase Container -->
         <div class="cinema-showcase-container reveal">
           <div class="cinema-ambient-glow"></div>
           
-          <div class="cinema-frame">
+          <div class="cinema-frame" id="custom-cinema-player">
             <!-- Top Studio Display Control Bar -->
             <div class="cinema-frame__header">
               <div class="cinema-frame__controls">
@@ -466,38 +466,88 @@
                 <span class="ctrl-dot ctrl--green"></span>
               </div>
               <div class="cinema-frame__title">
-                <i class="ri-movie-2-fill"></i>
-                <span>latest-production-preview.mp4</span>
+                <i class="ri-film-fill"></i>
+                <span>TecWeek 3.0 — Official Teaser.mp4</span>
               </div>
               <div class="cinema-frame__badge">
                 <span class="hd-pulse"></span>
-                <span>4K ULTRA HD</span>
+                <span>1080P • 60 FPS</span>
               </div>
             </div>
 
-            <!-- Responsive 16:9 Video Canvas -->
-            <div class="cinema-frame__screen">
-              <iframe 
-                src="https://drive.google.com/file/d/1bd5fLjPSvXyGfk9hvcAViKC7v_DAYMUF/preview" 
-                title="Latest Work Video Preview"
-                allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
+            <!-- Responsive Video Canvas with Custom HTML5 Player -->
+            <div class="cinema-frame__screen" id="cinema-screen">
+              <video 
+                id="latest-work-video" 
+                class="cinema-video" 
+                poster="./tecweek 3.0/poster.jpg" 
+                preload="metadata" 
+                playsinline 
+                webkit-playsinline>
+                <source src="./tecweek 3.0/tecweek 3.0.mp4" type="video/mp4">
+                Your browser does not support HTML5 video playback.
+              </video>
+
+              <!-- Central Big Play Button Overlay -->
+              <button class="cinema-big-play" id="cinema-big-play" aria-label="Play Video">
+                <div class="play-icon-glow"></div>
+                <i class="ri-play-fill"></i>
+              </button>
+
+              <!-- Custom Video Controls Overlay -->
+              <div class="cinema-controls" id="cinema-controls">
+                <!-- Timeline Scrubber -->
+                <div class="cinema-progress-wrap" id="cinema-progress-wrap">
+                  <div class="cinema-progress-bar" id="cinema-progress-bar"></div>
+                  <div class="cinema-progress-handle" id="cinema-progress-handle"></div>
+                </div>
+
+                <div class="cinema-controls-bar">
+                  <div class="cinema-controls-left">
+                    <!-- Play/Pause Toggle -->
+                    <button class="cinema-btn" id="cinema-play-btn" aria-label="Play / Pause">
+                      <i class="ri-play-fill" id="cinema-play-icon"></i>
+                    </button>
+
+                    <!-- Volume / Mute Toggle -->
+                    <div class="cinema-vol-wrap">
+                      <button class="cinema-btn" id="cinema-vol-btn" aria-label="Mute / Unmute">
+                        <i class="ri-volume-up-fill" id="cinema-vol-icon"></i>
+                      </button>
+                      <input type="range" class="cinema-vol-slider" id="cinema-vol-slider" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+                    </div>
+
+                    <!-- Time Display -->
+                    <div class="cinema-time" id="cinema-time">
+                      <span id="cinema-current-time">0:00</span>
+                      <span class="time-sep">/</span>
+                      <span id="cinema-duration">1:24</span>
+                    </div>
+                  </div>
+
+                  <div class="cinema-controls-right">
+                    <!-- Fullscreen Toggle -->
+                    <button class="cinema-btn" id="cinema-fullscreen-btn" aria-label="Toggle Fullscreen" title="Fullscreen">
+                      <i class="ri-fullscreen-line" id="cinema-fs-icon"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Bottom Studio Metadata Bar -->
             <div class="cinema-frame__footer">
               <div class="cinema-frame__tags">
-                <span class="c-tag"><i class="ri-sparkling-fill text-orange"></i> Live Video Preview</span>
-                <span class="c-tag"><i class="ri-film-line"></i> Motion & Video Production</span>
-                <span class="c-tag"><i class="ri-play-circle-line"></i> In-Page Player</span>
+                <span class="c-tag"><i class="ri-movie-2-line text-orange"></i> TecWeek 3.0</span>
+                <span class="c-tag"><i class="ri-sparkling-fill text-orange"></i> Official Teaser</span>
+                <span class="c-tag"><i class="ri-music-2-line"></i> Original Sound Mix</span>
               </div>
-              <a href="https://drive.google.com/file/d/1bd5fLjPSvXyGfk9hvcAViKC7v_DAYMUF/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-cinema-launch">
-                <i class="ri-google-drive-fill"></i>
-                <span data-i18n="latest_work_open_drive">Open in Drive</span>
-                <i class="ri-arrow-right-up-line"></i>
-              </a>
+              <div class="cinema-frame__actions">
+                <a href="./tecweek 3.0/tecweek 3.0.mp4" download="TecWeek-3.0-Teaser.mp4" class="btn-cinema-launch">
+                  <i class="ri-download-2-line"></i>
+                  <span>Download Video</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
