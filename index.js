@@ -496,6 +496,7 @@ const translations = {
     nav_cover: "Cover",
     nav_softwares: "Softwares",
     nav_journey: "Journey",
+    nav_latest_work: "Latest Work",
     nav_videos: "Videos",
     nav_posters: "Posters",
     nav_branding: "Branding",
@@ -512,6 +513,10 @@ const translations = {
     sw_cat2: "Video & Audio Production",
     journey_title: "CREATIVE JOURNEY",
     journey_subtitle: "Leadership, awards, and media manager roles across national events",
+    latest_work_badge: "FEATURED PRODUCTION",
+    latest_work_title: "LATEST WORK",
+    latest_work_subtitle: "An exclusive preview of my latest audio-visual production, 3D motion graphics, and live event demonstration",
+    latest_work_open_drive: "Open in Drive",
     video_badge: "40+ PRODUCTIONS IN 2.5 YEARS",
     video_title: "VIDEO PRODUCTIONS",
     video_subtitle: "Aftermovies, 3D intro reveals, congress teasers & 17m giant screen main stage productions",
@@ -533,6 +538,7 @@ const translations = {
     nav_cover: "Accueil",
     nav_softwares: "Logiciels",
     nav_journey: "Parcours",
+    nav_latest_work: "Dernier Projet",
     nav_videos: "Vidéos",
     nav_posters: "Affiches",
     nav_branding: "Identité Visuelle",
@@ -549,6 +555,10 @@ const translations = {
     sw_cat2: "Production Vidéo & Audio",
     journey_title: "PARCOURS CRÉATIF",
     journey_subtitle: "Leadership, prix et rôles de responsable média lors d'événements nationaux",
+    latest_work_badge: "PRODUCTION RÉCENTE",
+    latest_work_title: "DERNIÈRE RÉALISATION",
+    latest_work_subtitle: "Un aperçu exclusif de ma plus récente réalisation audiovisuelle, motion design 3D et démonstration en direct",
+    latest_work_open_drive: "Ouvrir dans Drive",
     video_badge: "40+ PRODUCTIONS EN 2.5 ANS",
     video_title: "PRODUCTIONS VIDÉO",
     video_subtitle: "Aftermovies, révélations 3D, teasers de congrès et productions pour écran géant de 17m",
@@ -677,7 +687,7 @@ function initCustomCursor() {
   });
 
   // Hover detection on interactive elements
-  var hoverTargets = 'a, button, input, textarea, select, .poster-card, .video-filter-btn, .social-card, .nav__link, .dot, [role="button"]';
+  var hoverTargets = 'a, button, input, textarea, select, .poster-card, .video-filter-btn, .social-card, .cinema-frame, .ctrl-dot, .btn-cinema-launch, .nav__link, .dot, [role="button"]';
 
   document.addEventListener('mouseover', function(e) {
     if (e.target.closest(hoverTargets)) {
